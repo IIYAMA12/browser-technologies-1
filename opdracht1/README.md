@@ -78,7 +78,7 @@ if (localStorage != undefined) {
 * De sorteer knoppen hebben geen focus status.
 
 
-### Speed
+### HTTP order
 <details>
     <summary>Loading order Firefox</summary>
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/loading-order-firefox.png" alt="Loading order">
@@ -88,6 +88,12 @@ if (localStorage != undefined) {
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/loading-order-chrome.png" alt="Loading order">
 </details>
 
+
+### Webpagetest
+<details>
+    <summary>Loading order Firefox</summary>
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/webpagetest.png" alt="Webpagetest">
+</details>
 
 -----------------
 
