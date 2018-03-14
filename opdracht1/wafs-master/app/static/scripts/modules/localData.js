@@ -8,7 +8,7 @@
 
 (function () {
     app.localData = {
-        
+
         /*
             Get data
         */
@@ -28,9 +28,11 @@
             } else { // not in the memory?
 
                 // check localStorage
-                localStorageData = localStorage.getItem(key);
-                if (parser == "JSON") {
-                    localStorageData = JSON.parse(localStorageData);
+                if (localStorage != undefined) {
+                    localStorageData = localStorage.getItem(key);
+                    if (parser == "JSON") {
+                        localStorageData = JSON.parse(localStorageData);
+                    }
                 }
                 // Store in the direct memory as well
                 this.data[key] = localStorageData;
@@ -61,9 +63,10 @@
                 item = JSON.stringify(item);
             }
 
-            // save in localStorage
-            localStorage.setItem(key, item);
-
+            if (localStorage != undefined) {
+                // save in localStorage
+                localStorage.setItem(key, item);
+            }
 
             return true;
         },
