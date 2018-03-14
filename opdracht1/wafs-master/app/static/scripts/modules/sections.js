@@ -156,6 +156,7 @@
             ["startscreen"] : {
                 startFunctions: [
                     function (_, sectionData) {
+
                         const errorCallBack = function (message) {
                             const sectionElement = document.getElementById(sectionData.id);
                             if (sectionElement != undefined) {
@@ -168,6 +169,7 @@
                             }
                         };
                         const sectionElement = document.getElementById(sectionData.id);
+                        sectionElement.classList.remove("data-loaded");
                         if (sectionElement != undefined) {
                             const errorMessageElement = sectionElement.getElementsByClassName("error-message")[0];
                             if (errorMessageElement) {
@@ -203,6 +205,7 @@
                             }
                         };
                         const sectionElement = document.getElementById(sectionData.id);
+                        sectionElement.classList.remove("data-loaded");
                         if (sectionElement != undefined) {
                             const errorMessageElement = sectionElement.getElementsByClassName("error-message")[0];
                             if (errorMessageElement) {

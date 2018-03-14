@@ -13,16 +13,18 @@
 </details>
 
 ## Javascript (volledig)
-* Loaders blijven spinnen, maar de content komt niet te voorschijn.
+* Content laders blijft spinner, maar de content komt niet te voorschijn.
 * Navigatie werkt niet.
 
 <details>
-    <summary>Keeps spinning</summary>
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/loading.png" alt="Keeps spinning">
+    <summary>Blijft spinnen</summary>
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/loading.png" alt="Blijft spinnen">
 </details>
 
+Als de lader Blijft spinnen en er komt geen content, dan is dit natuurlijk geen goede feedback. De spinner zou aan het begin van de pagina niet zichtbaar moeten zijn. Maar wel op het moment dat de Javascript de data gaat ophalen.
+
 ### Kleur
-* Gray scale: De de geselecteerde sorteer knop die oranje is, krijgt nu de kleur grijs. Het is nu lastiger te zien welke geselecteerd is, maar de gebruiker zal niet nog een keer op deze knop gaan klikken, dat juist goed is. De geselecteerde knop is al `geselecteerd` en dus als gebruiker wil je natuurlijk niet hetzelfde content gaan weergeven dat je al ziet.
+* Grijstinten: De de geselecteerde sorteer knop die oranje is, krijgt nu de kleur grijs. Het is nu lastiger te zien welke geselecteerd is, maar de gebruiker zal niet nog een keer op deze knop gaan klikken, dat juist goed is. De geselecteerde knop is al `geselecteerd` en dus als gebruiker wil je natuurlijk niet hetzelfde content gaan weergeven dat je al ziet.
 
 <details>
     <summary>Grayscale</summary>
@@ -36,7 +38,7 @@
     <summary>Status 1</summary>
     <p>Basis content wordt getoond, met uitzondering van:</p>
     <ul>
-        <li>`Sort by:` lijst, deze wordt door JavaScript toegevoegd.</li>
+        <li>De `Sort by:` lijst, deze wordt door JavaScript toegevoegd.</li>
         <li>Pagina titel, deze is op een Google font aan het wachten.</li>
     </ul>
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth1.png" alt="Bandwidth state1">
@@ -44,19 +46,21 @@
 </details>
 <details>
     <summary>Status 2</summary>
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth2.png" alt="Bandwidth state2">
     <p>Vervolgens is de JavaScript en font geladen.</p>
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth2.png" alt="Bandwidth state2">
+
 </details>
 <details>
     <summary>Status 3</summary>
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth3.png" alt="Bandwidth state3">
     <p>De aanvraag naar de API is teruggestuurd.</p>
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth3.png" alt="Bandwidth state3">
 </details>
 
 ## Cookies
 * (Geen cookies gebruikt.)
+
 ## localStorage
-* Wanneer local storage is uitgezet, the variable localStorage is null. Het script werkt vervolgens niet meer.
+* Wanneer local storage is uitgezet, bevat de variable localStorage de waarden null. Het script werkt vervolgens niet meer.
 
 <details>
     <summary>Error after localStorage disabled</summary>
@@ -71,7 +75,7 @@ if (localStorage != undefined) {
 ```
 
 ### Muis/Trackpad
-* De sorteer knoppen hebben geen focus state.
+* De sorteer knoppen hebben geen focus status.
 
 
 -----------------
