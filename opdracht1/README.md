@@ -3,9 +3,9 @@
 
 ## Bevindingen
 ### Afbeeldingen
-    * Er zijn geen afbeelding gebruikt met uitzondering van svg. Deze bestanden worden niet geblokkeerd.
+* Er zijn geen afbeelding gebruikt met uitzondering van svg. Deze bestanden worden niet geblokkeerd.
 ### Custom fonts
-    * Font wordt niet weergegeven. Verder geen problemen.
+* Font wordt niet weergegeven. Verder geen problemen.
 
 <details>
     <summary>Custom fonts disabled</summary>
@@ -13,8 +13,8 @@
 </details>
 
 ## Javascript (volledig)
-    * Loaders blijven spinnen, maar de content komt niet te voorschijn.
-    * Navigatie werkt niet.
+* Loaders blijven spinnen, maar de content komt niet te voorschijn.
+* Navigatie werkt niet.
 
 <details>
     <summary>Keeps spinning</summary>
@@ -22,7 +22,7 @@
 </details>
 
 ### Kleur
-    * Gray scale: De de geselecteerde sorteer knop die oranje is, krijgt nu de kleur grijs. Het is nu lastiger te zien welke geselecteerd is, maar de gebruiker zal niet nog een keer op deze knop gaan klikken, dat juist goed is. De geselecteerde knop is al `geselecteerd` en dus als gebruiker wil je natuurlijk niet hetzelfde content gaan weergeven dat je al ziet.
+* Gray scale: De de geselecteerde sorteer knop die oranje is, krijgt nu de kleur grijs. Het is nu lastiger te zien welke geselecteerd is, maar de gebruiker zal niet nog een keer op deze knop gaan klikken, dat juist goed is. De geselecteerde knop is al `geselecteerd` en dus als gebruiker wil je natuurlijk niet hetzelfde content gaan weergeven dat je al ziet.
 
 <details>
     <summary>Grayscale</summary>
@@ -40,9 +40,9 @@
 </details>
 
 ## Cookies
-    * (Geen cookies gebruikt.)
+* (Geen cookies gebruikt.)
 ## localStorage
-    * Wanneer local storage is uitgezet, the variable localStorage is null. Het script werkt daarom niet meer.
+* Wanneer local storage is uitgezet, the variable localStorage is null. Het script werkt daarom niet meer.
 
 <details>
     <summary>Error after localStorage disabled</summary>
@@ -52,11 +52,9 @@
 
 
 ### Muis/Trackpad
-    * De sorteer knoppen hebben geen focus state.
+* De sorteer knoppen hebben geen focus state.
 
 
------------------
------------------
 -----------------
 
 
