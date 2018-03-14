@@ -33,23 +33,42 @@
 ### Breedband internet
 
 <details>
-    <summary>States</summary>
+    <summary>Status 1</summary>
+    <p>Basis content wordt getoond, met uitzondering van:</p>
+    <ul>
+        <li>`Sort by:` lijst, deze wordt door JavaScript toegevoegd.</li>
+        <li>Pagina titel, deze is op een Google font aan het wachten.</li>
+    </ul>
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth1.png" alt="Bandwidth state1">
+
+</details>
+<details>
+    <summary>Status 2</summary>
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth2.png" alt="Bandwidth state2">
+    <p>Vervolgens is de JavaScript en font geladen.</p>
+</details>
+<details>
+    <summary>Status 3</summary>
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth3.png" alt="Bandwidth state3">
+    <p>De aanvraag naar de API is teruggestuurd.</p>
 </details>
 
 ## Cookies
 * (Geen cookies gebruikt.)
 ## localStorage
-* Wanneer local storage is uitgezet, the variable localStorage is null. Het script werkt daarom niet meer.
+* Wanneer local storage is uitgezet, the variable localStorage is null. Het script werkt vervolgens niet meer.
 
 <details>
     <summary>Error after localStorage disabled</summary>
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/localstorage-null.png" alt="Error after localStorage disabled">
 </details>
 
-
+Oplossing:
+```JS
+if (localStorage != undefined) {
+    // localStorage exists
+}
+```
 
 ### Muis/Trackpad
 * De sorteer knoppen hebben geen focus state.
