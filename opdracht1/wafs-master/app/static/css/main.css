@@ -1,0 +1,351 @@
+:root {
+    --main-color: #00468c;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+body > *, body, html {
+    min-height: calc(100vh - 3rem);
+    width: 100vw;
+    overflow-x: hidden;
+    /* to prevent problems with overflow content */
+}
+
+body {
+    background-color: #f0f0f0;
+    margin-top: 3rem;
+}
+
+body > * {
+    margin: 0 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    width: calc(100vw - 2rem);
+    background-color: white;
+}
+
+section, article {
+    position: relative;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 3rem;
+    background-color: black;
+    z-index: 100;
+}
+
+header [href="#main-nav"] {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: inherit;
+    line-height: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: inherit;
+    text-decoration: none;
+}
+
+header [href="#main-nav"]:hover {
+    background-color: var(--main-color);
+}
+
+header {
+    color: white;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    height: 3rem;
+    display: block;
+    line-height: 3rem;
+    text-align: center;
+    border-top: 1px solid #969696;
+    color: #464646;
+}
+
+nav a:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+nav li:first-child a {
+    border-top: none;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Josefin Slab', serif;
+}
+
+h2, h3, h4, h5 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.6rem;
+    line-height: 3rem;
+    margin-left: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 0 0 1rem 0;
+}
+
+#nasa-slideshow svg {
+    width: 100%;
+    background-color: black;
+    opacity: 0;
+    height: 0;
+    transition: opacity 2s, height 2s;
+    margin-bottom: 2rem;
+}
+
+#nasa-slideshow.data-loaded svg {
+    opacity: 1;
+    height: auto;
+}
+
+table, tbody {
+    width: 100%;
+    display: block;
+}
+
+tr {
+    display: flex;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+tr > * {
+    min-height: 2rem;
+    line-height: 2rem;
+    display: block;
+}
+
+tr th {
+    min-width: 50%;
+    font-weight: bold;
+}
+
+tr td {
+    min-width: 50%;
+    overflow: scroll;
+}
+
+@media (max-width: 40rem) {
+    tr {
+        flex-wrap: wrap;
+    }
+    tr > * {
+        min-width: 100% !important;
+    }
+}
+
+#page-error p {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    line-height: 100vh;
+    text-align: center;
+}
+
+#startscreen > section:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -1rem;
+    margin-bottom: -1rem;
+}
+
+#startscreen > section:first-of-type article {
+    width: 35rem;
+    max-width: calc(100% - 3rem);
+    flex-shrink: 1;
+    flex-grow: 1;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fafafa;
+    border: 0.5px solid #f0f0f0;
+}
+
+#nasa-slideshow {
+    width: 35rem;
+    max-width: calc(100% - 2rem);
+    margin: auto;
+    background-color: #fafafa;
+    border: 0.5px solid #f0f0f0;
+}
+
+section, article, form {
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+#startscreen {
+    box-shadow: none;
+}
+
+/* FRAME-BY-FRAME ANIMATIONS */
+@keyframes loader {
+    to {
+        background-position: -40rem 0;
+    }
+}
+
+[aria-label="loader"] {
+    pointer-events: none;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    margin: 20rem 0 0 calc(50% - 2.5rem);
+    transform: translateY(-50%);
+    width: 5rem;
+    height: 5rem;
+    background: url("../images/loader.svg") 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: loader 1s infinite steps(8);
+    /* Hide text */
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 1rem;
+    transition: opacity 2s;
+    opacity: 1;
+}
+
+*.data-loaded [aria-label="loader"] {
+    opacity: 0;
+}
+
+.error-message {
+    color: red;
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+legend {
+    margin-bottom: 1rem;
+}
+
+form {
+    border: 0.5px solid #e6e6e6;
+    background-color: #f0f0f0;
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
+
+form fieldset:first-child {
+    margin: 2rem 0;
+}
+
+#search-on-text {
+    margin-top: 0.5rem;
+    color: #3c3c3c;
+}
+
+#sort-on-number > div {
+    display: grid;
+    grid-template-columns: 2rem minmax(50%, 20rem);
+    max-width: 40rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 40rem) {
+    #sort-on-number > div {
+        grid-template-columns: 2rem calc(50% - 1rem) 2rem calc(50% - 1rem);
+    }
+}
+
+@media (min-width: 60rem) {
+    #sort-on-number > div {
+        grid-template-columns: 2rem calc(50% - 1rem) 2rem calc(50% - 1rem) 2rem calc(50% - 1rem);
+    }
+}
+
+@media (min-width: 80rem) {
+    #sort-on-number > div {
+        grid-template-columns: 2rem calc(50% - 1rem) 2rem calc(50% - 1rem) 2rem calc(50% - 1rem) 2rem calc(50% - 1rem);
+    }
+}
+
+#sort-on-number > div:first-of-type input {
+    height: 1rem;
+    width: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#sort-on-number > span {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 3rem;
+}
+
+#sort-on-number > span label {
+    position: relative;
+    height: 1rem;
+    width: 1rem;
+    display: block;
+    cursor: pointer;
+}
+
+#sort-on-number > span label:first-of-type {
+    background: url("../images/sort-down.svg") 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#sort-on-number > span label:last-of-type {
+    background: url("../images/sort-up.svg") 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#sort-on-number > span input:disabled + label {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+#sort-on-number > span input:first-of-type:checked + label {
+    background: url("../images/sort-down-selected.svg") 0 0 !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#sort-on-number > span input:last-of-type:checked + label {
+    background: url("../images/sort-up-selected.svg") 0 0 !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+[name="sort-order"] {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
