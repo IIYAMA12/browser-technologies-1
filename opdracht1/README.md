@@ -1,6 +1,65 @@
 # Browser Technologies
 //Robuuste, toegankelijke websites leren bouwen …
 
+## Bevindingen
+### Afbeeldingen
+    * Er zijn geen afbeelding gebruikt met uitzondering van svg. Deze bestanden worden niet geblokkeerd.
+### Custom fonts
+    * Font wordt niet weergegeven. Verder geen problemen.
+
+<details>
+    <summary>Custom fonts disabled</summary>
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/custom-font.png" alt="custom font">
+</details>
+
+## Javascript (volledig)
+    * Loaders blijven spinnen, maar de content komt niet te voorschijn.
+    * Navigatie werkt niet.
+
+<details>
+    <summary>Keeps spinning</summary>
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/loading.png" alt="Keeps spinning">
+</details>
+
+### Kleur
+    * Gray scale: De de geselecteerde sorteer knop die oranje is, krijgt nu de kleur grijs. Het is nu lastiger te zien welke geselecteerd is, maar de gebruiker zal niet nog een keer op deze knop gaan klikken, dat juist goed is. De geselecteerde knop is al `geselecteerd` en dus als gebruiker wil je natuurlijk niet hetzelfde content gaan weergeven dat je al ziet.
+
+<details>
+    <summary>Grayscale</summary>
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/grayscale.png" alt="Grayscale">
+</details>
+
+
+### Breedband internet
+
+<details>
+    <summary>States</summary>
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth1.png" alt="Bandwidth state1">
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth2.png" alt="Bandwidth state2">
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth3.png" alt="Bandwidth state3">
+</details>
+
+## Cookies
+    * (Geen cookies gebruikt.)
+## localStorage
+    * Wanneer local storage is uitgezet, the variable localStorage is null. Het script werkt daarom niet meer.
+
+<details>
+    <summary>Error after localStorage disabled</summary>
+    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/localstorage-null.png" alt="Error after localStorage disabled">
+</details>
+
+
+
+### Muis/Trackpad
+    * De sorteer knoppen hebben geen focus state.
+
+
+-----------------
+-----------------
+-----------------
+
+
 ## Opdracht 1 - Progressive Enhancement
 
 ### Opdracht 1.1 - Breek het Web
@@ -31,56 +90,3 @@ Voor deze opdracht ga je toepassen wat je van opdracht 1.1 hebt geleerd.
 Criteria
 - Zet je code op Github
 - Schrijf een Readme met een beschrijving van de problemen die je hebt gevonden, hoe je die hebt opgelost, of hoe je dit zou oplossen (met todo’s) als je genoeg tijd en budget zou hebben
-
-# Bevindingen:
-## Afbeeldingen
-    - Er zijn geen afbeelding gebruikt met uitzondering van svg. Deze bestanden worden niet geblokkeerd.
-## Custom fonts
-    - Font wordt niet weergegeven. Verder geen problemen.
-
-<details>
-    <summary>Custom fonts disabled</summary>
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/custom-font.png" alt="custom font">
-</details>
-
-## Javascript (volledig)
-    - Loaders blijven spinnen, maar de content komt niet te voorschijn.
-    - Navigatie werkt niet.
-
-<details>
-    <summary>Keeps spinning</summary>
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/loading.png" alt="Keeps spinning">
-</details>
-
-## Kleur
-    - Gray scale: De de geselecteerde sorteer knop die oranje is, krijgt nu de kleur grijs. Het is nu lastiger te zien welke geselecteerd is, maar de gebruiker zal niet nog een keer op deze knop gaan klikken, dat juist goed is. De geselecteerde knop is al `geselecteerd` en dus als gebruiker wil je natuurlijk niet hetzelfde content gaan weergeven dat je al ziet.
-
-<details>
-    <summary>Grayscale</summary>
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/grayscale.png" alt="Grayscale">
-</details>
-
-
-## Breedband internet
-
-<details>
-    <summary>States</summary>
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth1.png" alt="Bandwidth state1">
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth2.png" alt="Bandwidth state2">
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth3.png" alt="Bandwidth state3">
-</details>
-
-## Cookies
-    - (Geen cookies gebruikt.)
-## localStorage
-    - Wanneer local storage is uitgezet, the variable localStorage is null. Het script werkt daarom niet meer.
-
-<details>
-    <summary>Error after localStorage disabled</summary>
-    <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/localstorage-null.png" alt="Error after localStorage disabled">
-</details>
-
-   
-
-## Muis/Trackpad
-    - De sorteer knoppen hebben geen focus state.
