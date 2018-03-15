@@ -139,11 +139,11 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 
 <details>
     <summary>Film strip</summary>
-    <img alt="Status 1" href="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001467.jpg">
+    <img alt="Status 1" src="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001467.jpg">
     <p>62% - 1.5s</p>
-    <a alt="Status 2" href="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001534.jpg">
+    <img alt="Status 2" src="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001534.jpg">
     <p>62% - 1.6s</p>
-    <img alt="Status 3" href="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001678.jpg">
+    <img alt="Status 3" src="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001678.jpg">
     <p>100% - 1.7s</p>
 </details>
 
@@ -154,6 +154,8 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 
 #### iPhone 8 iOS 11
 [Alles](https://www.webpagetest.org/result/180315_E7_5515b7f027756cbcca4e3606e60243b6/)
+
+
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_E7_5515b7f027756cbcca4e3606e60243b6-r:1-c:0)
 [Video](https://www.webpagetest.org/results/video/18/03/15/E7/5515b7f027756cbcca4e3606e60243b6.1.0/video.mp4)
 
