@@ -133,7 +133,7 @@ Een secondaire focus status toegevoegd voor de navigatie elementen.
 Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels toe om meer context aan de elementen toe te dienen.
 
 
-[[embed url=https://www.webpagetest.org/video/view.php?id=180315_DG_830cc767a5826f7919688cda71fca659.1.0&embed=1&width=408&height=592]]
+[[embed url="https://www.webpagetest.org/video/view.php?id=180315_DG_830cc767a5826f7919688cda71fca659.1.0&embed=1&width=408&height=592"]]
 -----------------
 
 
