@@ -137,7 +137,9 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 #### Moto G4 - Chrome
 [Alles](https://www.webpagetest.org/result/180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3/)
 
-<details>
+[Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3-r:1-c:0)
+
+<details style="display:flex">
     <summary>Film strip</summary>
     <img alt="Status 1" src="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001467.jpg">
     <p>62% - 1.5s</p>
@@ -147,7 +149,7 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
     <p>100% - 1.7s</p>
 </details>
 
-[Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3-r:1-c:0)
+
 
 
 [Video](https://www.webpagetest.org/video/view.php?id=180315_DG_830cc767a5826f7919688cda71fca659.1.0&embed=1&width=408&height=592)
@@ -155,14 +157,33 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 #### iPhone 8 iOS 11
 [Alles](https://www.webpagetest.org/result/180315_E7_5515b7f027756cbcca4e3606e60243b6/)
 
-
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_E7_5515b7f027756cbcca4e3606e60243b6-r:1-c:0)
+
+<details>
+    <summary>Film strip</summary>
+    <img alt="Status 1" src="https://www.webpagetest.org/results/18/03/15/E7/5515b7f027756cbcca4e3606e60243b6/video_1/ms_001117.jpg">
+    <p>100% - 1.2s</p>
+</details>
+
+
 [Video](https://www.webpagetest.org/results/video/18/03/15/E7/5515b7f027756cbcca4e3606e60243b6.1.0/video.mp4)
 
 
-#### Galaxy_S5
+#### Galaxy_S5 - Chrome
 [Alles](https://www.webpagetest.org/result/180315_DG_830cc767a5826f7919688cda71fca659/)
+
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_DG_830cc767a5826f7919688cda71fca659-r:1-c:0)
+
+<details style="display:flex">
+    <summary>Film strip</summary>
+    <img alt="Status 1" src="https://www.webpagetest.org/results/18/03/15/DG/830cc767a5826f7919688cda71fca659/video_1/ms_001188.jpg">
+    <p>58% - 1.2s</p>
+    <img alt="Status 2" src="https://www.webpagetest.org/results/18/03/15/DG/830cc767a5826f7919688cda71fca659/video_1/ms_001188.jpg">
+    <p>58% - 1.4s</p>
+    <img alt="Status 3" src="https://www.webpagetest.org/results/18/03/15/DG/830cc767a5826f7919688cda71fca659/video_1/ms_001422.jpg">
+    <p>100% - 1.5s</p>
+</details>
+
 [Video](https://www.webpagetest.org/results/video/18/03/15/DG/830cc767a5826f7919688cda71fca659.1.0/video.mp4)
 
 -----------------
