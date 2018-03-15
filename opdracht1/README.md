@@ -136,25 +136,30 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 
 #### Moto G4 - Chrome
 [Alles](https://www.webpagetest.org/result/180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3/)
+
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3-r:1-c:0)
+
 ![Status 1](https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001467.jpg)
 62% - 1.5s
+
 ![Status 2](https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001534.jpg)
 62% - 1.6s
+
 ![Status 3](https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001678.jpg)
 100% - 1.7s
+
 [Video](https://www.webpagetest.org/video/view.php?id=180315_DG_830cc767a5826f7919688cda71fca659.1.0&embed=1&width=408&height=592)
 
 #### iPhone 8 iOS 11
 [Alles](https://www.webpagetest.org/result/180315_E7_5515b7f027756cbcca4e3606e60243b6/)
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_E7_5515b7f027756cbcca4e3606e60243b6-r:1-c:0)
-[Video](https://www.webpagetest.org/video/view.php?id=180315_E7_5515b7f027756cbcca4e3606e60243b6.1.0&embed=1&width=408&height=592" width="408" height="592)
+[Video](https://www.webpagetest.org/results/video/18/03/15/E7/5515b7f027756cbcca4e3606e60243b6.1.0/video.mp4)
 
 
 #### Galaxy_S5
 [Alles](https://www.webpagetest.org/result/180315_DG_830cc767a5826f7919688cda71fca659/)
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_DG_830cc767a5826f7919688cda71fca659-r:1-c:0)
-[Video](https://www.webpagetest.org/video/view.php?id=180315_DG_830cc767a5826f7919688cda71fca659.1.0&embed=1&width=408&height=592" width="408" height="592)
+[Video](https://www.webpagetest.org/results/video/18/03/15/DG/830cc767a5826f7919688cda71fca659.1.0/video.mp4)
 
 -----------------
 
