@@ -196,7 +196,10 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 
 -----------------
 
-
+## Todo lijst
+* Laden van het font asynchroon, om zo meer controle te hebben over het laden. (met bv. [webfontloader](https://github.com/typekit/webfontloader))
+* SVG afbeeldingen comprimeren om zo de knop stijling eerder weer te geven.
+* Andere aria attributen uit te proberen.
 
 
 ## Opdracht 1 - Progressive Enhancement
