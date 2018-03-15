@@ -189,7 +189,7 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
     <p>100% - 1.5s</p>
 </details>
 
-* Status 1 en 2: Laden van de content positie, tekst en svg afbeelding
+* Status 1 en 2: Laden van de content positie, tekst en svg afbeeldingen.
 * Status 3: Laden van een Google font en JavaScript.
 
 [Video](https://www.webpagetest.org/results/video/18/03/15/DG/830cc767a5826f7919688cda71fca659.1.0/video.mp4)
