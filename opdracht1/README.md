@@ -110,12 +110,30 @@ Een secondaire focus status toegevoegd voor de navigatie elementen.
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/loading-order-chrome.png" alt="Loading order">
 </details>
 
-
 ### Webpagetest
 <details>
     <summary>Loading order Firefox</summary>
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/webpagetest.png" alt="Webpagetest">
 </details>
+
+
+### Aria-labels
+```HTML
+<!-- Link naar hoofd navigatie -->
+<a href="#main-nav" aria-label="To main navigation">Navigation</a>
+
+<!-- Filter op asteroïde name -->
+<label for="filter-input" aria-label="Search field for an asteroid.">Search:</label>
+
+<!-- Sorteer op asteroïde content-->
+<label for="sort-down" aria-label="Sort asteroid content down"></label>
+<label for="sort-up" aria-label="Sort asteroid content up"></label>
+```
+
+Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels toe om meer context aan de elementen toe te dienen.
+
+
+<iframe src="https://www.webpagetest.org/video/view.php?id=180315_DG_830cc767a5826f7919688cda71fca659.1.0&embed=1&width=408&height=592" width="408" height="592"></iframe>
 
 -----------------
 
