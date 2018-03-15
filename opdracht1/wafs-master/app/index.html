@@ -26,10 +26,10 @@
     </nav>
 
     <section id="startscreen" class="data-loaded">
-        <header><h1>Startscreen</h1><a href="#main-nav">Navigation</a></header>
+        <header><h1>Startscreen</h1><a href="#main-nav" aria-label="Go to main navigation">Navigation</a></header>
         <form>
             <fieldset>
-                <label for="filter-input">Search:</label>
+                <label for="filter-input" aria-label="Search field for an asteroid.">Search:</label>
                 <input id="filter-input" type="text" name="filter" value="">
                 <p id="search-on-text" class="hidden">Searching on: <span></span></p>
             </fieldset>
@@ -39,16 +39,16 @@
                 </div>
                 <p>Sort up or down:</p>
                 <span>
-                    <input id="sort-down" type="radio" value="down" name="sort-order" disabled>
+                    <input id="sort-down" type="radio" value="down" name="sort-order" aria-label="Sort asteroid content down" disabled>
                     <label for="sort-down"></label>
 
-                    <input id="sort-up" type="radio" value="up" name="sort-order" disabled>
+                    <input id="sort-up" type="radio" value="up" name="sort-order" aria-label="Sort asteroid content up" disabled>
                     <label for="sort-up"></label>
                 </span>
             </fieldset>
         </form>
         <section>
-            <div aria-label="loader">Loading...</div>
+            <div aria-label="Loader">Loading...</div>
             <p class="error-message hidden"></p>
         </section>
     </section>
