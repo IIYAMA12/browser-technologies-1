@@ -12,7 +12,7 @@
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/custom-font.png" alt="custom font">
 </details>
 
-## Javascript (volledig)
+### Javascript (volledig)
 * Content laders blijft spinner, maar de content komt niet te voorschijn.
 * Navigatie werkt niet.
 
@@ -56,10 +56,10 @@ Als de lader Blijft spinnen en er komt geen content, dan is dit natuurlijk geen 
     <img src="https://iiyama12.github.io/browser-technologies-1/opdracht1/readme-content/bandwidth3.png" alt="Bandwidth state3">
 </details>
 
-## Cookies
+### Cookies
 * (Geen cookies gebruikt.)
 
-## localStorage
+### localStorage
 * Wanneer local storage is uitgezet, bevat de variable localStorage de waarden null. Het script werkt vervolgens niet meer.
 
 <details>
@@ -135,27 +135,30 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 ### Apparaten
 
 #### Moto G4 - Chrome
-[Alles](https://www.webpagetest.org/result/180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3/)
+[Gedetailleerde informatie](https://www.webpagetest.org/result/180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3/)
 
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3-r:1-c:0)
 
-<details style="display:flex">
+<details>
     <summary>Film strip</summary>
     <img alt="Status 1" src="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001467.jpg">
-    <p>62% - 1.5s</p>
+    <p>62% - 1.5s </p>
     <img alt="Status 2" src="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001534.jpg">
     <p>62% - 1.6s</p>
     <img alt="Status 3" src="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001678.jpg">
     <p>100% - 1.7s</p>
 </details>
 
+* Status 1: Laden van de content positie met tekst. (met uitzondering van de h1)
+* Status 2: Laden van de svg afbeeldingen.
+* Status 3: Laden van een Google font en JavaScript.
 
 
 
 [Video](https://www.webpagetest.org/video/view.php?id=180315_DG_830cc767a5826f7919688cda71fca659.1.0&embed=1&width=408&height=592)
 
 #### iPhone 8 iOS 11
-[Alles](https://www.webpagetest.org/result/180315_E7_5515b7f027756cbcca4e3606e60243b6/)
+[Gedetailleerde informatie](https://www.webpagetest.org/result/180315_E7_5515b7f027756cbcca4e3606e60243b6/)
 
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_E7_5515b7f027756cbcca4e3606e60243b6-r:1-c:0)
 
@@ -165,12 +168,14 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
     <p>100% - 1.2s</p>
 </details>
 
+* Status: Laden van alles in 1 keer.
+
 
 [Video](https://www.webpagetest.org/results/video/18/03/15/E7/5515b7f027756cbcca4e3606e60243b6.1.0/video.mp4)
 
 
 #### Galaxy_S5 - Chrome
-[Alles](https://www.webpagetest.org/result/180315_DG_830cc767a5826f7919688cda71fca659/)
+[Gedetailleerde informatie](https://www.webpagetest.org/result/180315_DG_830cc767a5826f7919688cda71fca659/)
 
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_DG_830cc767a5826f7919688cda71fca659-r:1-c:0)
 
@@ -184,25 +189,17 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
     <p>100% - 1.5s</p>
 </details>
 
+* Status 1 en 2: Laden van de content positie, tekst en svg afbeelding
+* Status 3: Laden van een Google font en JavaScript.
+
 [Video](https://www.webpagetest.org/results/video/18/03/15/DG/830cc767a5826f7919688cda71fca659.1.0/video.mp4)
 
 -----------------
 
 
+
+
 ## Opdracht 1 - Progressive Enhancement
-
-### Opdracht 1.1 - Breek het Web
-Het Web laten 'breken' door features van het platform bewust uit te zetten. Images, custom fonts, JavaScript, kleur, breedband internet, etc. Allemaal met als doel je te laten beseffen hoeveel je nog niet weet van het Web, erachter komen dat je misschien aannames hebt die niet kloppen, en om je je in te laten leven in de eindgebruiker.
-
-Onderzoek minimaal twee features. Dat betekent uitvogelen wat het voor impact heeft op de sites die je kent en normaal gebruikt. Kies sites in je directe omgeving: van je werkgever, lokale vereniging, de cafetaria om de hoek, en/of eerdere projecten die je zelf gedaan hebt.
-
-Kies 2 features van de 8
-- Zoek uit welke problemen ze kunnen veroorzaken (verzamel cijfers, meningen, ervaringen)
-- Zoek uit hoe je dit kunt testen (hoe kun je een feature ‘uitzetten’)
-- Vind een aantal sites waar dit ook problemen oplevert (uit je directe omgeving)
-- Beschrijf hoe je dit kan fiksen
-- Maak hierover een presentatie en neem die woensdag mee, dan gaan we de resultaten bespreken
-Lezen: [Everyone has JavaScript, right?](https://kryogenix.org/code/browser/everyonehasjs.html) en [I Turned Off JavaScript and it was Glorious](https://www.wired.com/2015/11/i-turned-off-javascript-for-a-whole-week-and-it-was-glorious/)
 
 
 ### Opdracht 1.2 - Fork je OBA
