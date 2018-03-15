@@ -2,6 +2,11 @@
     --main-color: #00468c;
 }
 
+@font-face {
+    font-family: 'Josefin Slab';
+    font-display: swap;
+}
+
 button, a {
     cursor: pointer;
 }
@@ -100,7 +105,7 @@ h2, h3, h4, h5 {
 h1 {
     font-size: 1.6rem;
     line-height: 3rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 h2 {
