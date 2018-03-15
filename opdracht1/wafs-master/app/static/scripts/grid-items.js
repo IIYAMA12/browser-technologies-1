@@ -111,7 +111,7 @@ const gridItemsContainer = (function () {
                     } else {
                         document.querySelector("#search-on-text").classList.add("hidden");
                     }
-
+                    data = data.slice(0, 20);
                     templateEngine.render(templateContent, document.getElementById("startscreen"), data);
                 }
             },
