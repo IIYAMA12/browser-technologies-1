@@ -137,16 +137,18 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 #### Moto G4 - Chrome
 [Alles](https://www.webpagetest.org/result/180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3/)
 
+<details>
+    <summary>Film strip</summary>
+    <img alt="Status 1" href="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001467.jpg">
+    <p>62% - 1.5s</p>
+    <a alt="Status 2" href="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001534.jpg">
+    <p>62% - 1.6s</p>
+    <img alt="Status 3" href="https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001678.jpg">
+    <p>100% - 1.7s</p>
+</details>
+
 [Film strip](https://www.webpagetest.org/video/compare.php?tests=180315_92_5ddc8b3b8bc4062373c74b4babbdf9a3-r:1-c:0)
 
-![Status 1](https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001467.jpg)
-62% - 1.5s
-
-![Status 2](https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001534.jpg)
-62% - 1.6s
-
-![Status 3](https://www.webpagetest.org/results/18/03/15/92/5ddc8b3b8bc4062373c74b4babbdf9a3/video_1/ms_001678.jpg)
-100% - 1.7s
 
 [Video](https://www.webpagetest.org/video/view.php?id=180315_DG_830cc767a5826f7919688cda71fca659.1.0&embed=1&width=408&height=592)
 
