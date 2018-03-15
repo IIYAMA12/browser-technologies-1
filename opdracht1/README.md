@@ -75,7 +75,29 @@ if (localStorage != undefined) {
 ```
 
 ### Muis/Trackpad
-* De sorteer knoppen hebben geen focus status.
+
+```CSS
+#sort-on-number > input:focus + label {
+    outline: thick solid #3B99FC;
+}
+```
+Een primaire focus status toegevoegd voor de sorteer knoppen.
+
+```CSS
+header [href="#main-nav"]:hover, header [href="#main-nav"]:focus {
+    background-color: var(--main-color);
+}
+```
+Een secondaire focus status toegevoegd voor een knop om de navigatie te openen.
+
+
+```CSS
+nav a:hover, nav a:focus {
+    background-color: var(--main-color);
+    color: white;
+}
+```
+Een secondaire focus status toegevoegd voor de navigatie elementen.
 
 
 ### HTTP order
