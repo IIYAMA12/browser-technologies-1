@@ -1,5 +1,8 @@
 # Browser Technologies
-//Robuuste, toegankelijke websites leren bouwen …
+
+[Opdracht 1.2](ASSIGNMENT.md)
+
+In dit onderzoek naar te toegankelijk van de wafs website gekeken. Het onderzoek bestaat uit 8+ validatie checks. Sommige van deze checks zijn gerelateerd aan elkaar. Zo zou met JavaScript veel van deze punten verbeterd kunnen worden. Maar mocht JavaScript uitstaan, dan zal dit juist de andere punten verslechteren als deze door middel van JavaScript zijn verbeterd. Een goed voorbeeld hiervan is [webfontloader](https://github.com/typekit/webfontloader). Mocht JavaScript uitstaan dan worden er waarschijnlijk geen custom fonts gedownload, terwijl als dit via de HTML was gebeurd dan was dit geen enkel probleem geweest.
 
 ## Bevindingen
 ### Afbeeldingen
@@ -157,6 +160,8 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 
 [Video](https://www.webpagetest.org/video/view.php?id=180315_DG_830cc767a5826f7919688cda71fca659.1.0&embed=1&width=408&height=592)
 
+-----------------
+
 #### iPhone 8 iOS 11
 [Gedetailleerde informatie](https://www.webpagetest.org/result/180315_E7_5515b7f027756cbcca4e3606e60243b6/)
 
@@ -173,6 +178,7 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 
 [Video](https://www.webpagetest.org/results/video/18/03/15/E7/5515b7f027756cbcca4e3606e60243b6.1.0/video.mp4)
 
+-----------------
 
 #### Galaxy_S5 - Chrome
 [Gedetailleerde informatie](https://www.webpagetest.org/result/180315_DG_830cc767a5826f7919688cda71fca659/)
@@ -199,23 +205,8 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 ## Todo lijst
 * Laden van fonts asynchroon, om zo meer controle te hebben over het laden. (met bv. [webfontloader](https://github.com/typekit/webfontloader))
 * SVG afbeeldingen comprimeren om zo de knop stijling eerder weer te geven.
-* Andere aria attributen uit te proberen.
+* Andere aria attributen uitproberen.
 
 
-## Opdracht 1 - Progressive Enhancement
 
-
-### Opdracht 1.2 - Fork je OBA
-Hoe zit het eigenlijk met Progressive Enhancement van je OBA opdracht? Waarschijnlijk kan daar wel het één en ander aan verbeterd worden, dat ding is immers in een week in elkaar gehackt!
-
-Voor deze opdracht ga je toepassen wat je van opdracht 1.1 hebt geleerd.
-- Pas Progressive enhancement toe op je OBA Web App.
-- Check je OBA Web App op de 8 features uit opdracht 1.1 en verbeter de code waar mogelijk.
-- Test  je OBA Web App in het device lab.
-- Laat je OBA Web App voorlezen door een screenreader.
-- Gebruik onderstaande artikelen om je code te optimaliseren.
-[The accessibility mindset](https://24ways.org/2015/the-accessibility-mindset/) en [Accessibility Originates With UX: A BBC iPlayer Case Study](https://www.smashingmagazine.com/2015/02/bbc-iplayer-accessibility-case-study/)
-
-Criteria
-- Zet je code op Github
-- Schrijf een Readme met een beschrijving van de problemen die je hebt gevonden, hoe je die hebt opgelost, of hoe je dit zou oplossen (met todo’s) als je genoeg tijd en budget zou hebben
+-----------------
