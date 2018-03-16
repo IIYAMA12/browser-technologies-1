@@ -8,7 +8,7 @@ In dit onderzoek naar te toegankelijk van de wafs website gekeken. Het onderzoek
 ### Afbeeldingen
 * Er zijn geen afbeelding gebruikt met uitzondering van svg. Deze bestanden worden niet geblokkeerd als afbeeldingen uitstaan.
 ### Custom fonts
-* Google font wordt niet direct weergegeven. Verder geen problemen. Om dit goed te krijgen moet of het font lokaal gedownload worden of JavaScript gebruikt worden. Google fonts hebben standaard geen `font-display: swap;` eigenschap, dit is naar mijn mening een limitatie. Wat Google fonts wel heel goed doet is om het kleinste bestandstype dat je computer ondersteund naar je op te sturen.
+* Google font wordt niet direct weergegeven. Verder geen problemen. Om dit goed te krijgen moet of het font lokaal gedownload worden of JavaScript gebruikt worden. Google fonts hebben standaard geen `font-display: swap;` eigenschap, dit is naar mijn mening een limitatie omdat je hiermee pas tekst weergeeft als het font is geladen. Wat Google fonts wel heel goed doet is om het kleinste bestandstype dat je computer ondersteund naar je op te sturen.
 
 <details>
     <summary>Custom fonts disabled</summary>
@@ -202,11 +202,23 @@ Met het gebruik van een screenreader in de browser `Safari`, voeg ik aria labels
 
 -----------------
 
+## Lab
+
+![Windows error with internet explorer](readme-content/errorInternetExplorer.jpg)
+Windows tablet error met internet explorer
+
+![Windows with newest supported Firefox, it works!](readme-content/windows-tablet-firefox.jpg)
+Windows met nieuwste ondersteund Firefox en het werkt!
+
+![Smartphone with unknown error](readme-content/unknown-error.jpg)
+Smartphone laat het content zien. Maar het manipuleren van de filters en sorteren werkt niet.
+
+-----------------
+
 ## Todo lijst
 * Laden van fonts asynchroon, om zo meer controle te hebben over het laden. (met bv. [webfontloader](https://github.com/typekit/webfontloader))
 * SVG afbeeldingen comprimeren om zo de knop stijling eerder weer te geven.
 * Andere aria attributen uitproberen.
-
-
+* Lab apparaten debuggen.
 
 -----------------
