@@ -6,9 +6,9 @@ In dit onderzoek naar te toegankelijk van de wafs website gekeken. Het onderzoek
 
 ## Bevindingen
 ### Afbeeldingen
-* Er zijn geen afbeelding gebruikt met uitzondering van svg. Deze bestanden worden niet geblokkeerd.
+* Er zijn geen afbeelding gebruikt met uitzondering van svg. Deze bestanden worden niet geblokkeerd als afbeeldingen uitstaan.
 ### Custom fonts
-* Font wordt niet weergegeven. Verder geen problemen.
+* Google font wordt niet direct weergegeven. Verder geen problemen. Om dit goed te krijgen moet of het font lokaal gedownload worden of JavaScript gebruikt worden. Google fonts hebben standaard geen `font-display: swap;` eigenschap, dit is naar mijn mening een limitatie. Wat Google fonts wel heel goed doet is om het kleinste bestandstype dat je computer ondersteund naar je op te sturen.
 
 <details>
     <summary>Custom fonts disabled</summary>
