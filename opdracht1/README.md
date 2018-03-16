@@ -211,7 +211,7 @@ Windows tablet error met internet explorer
 Windows met nieuwste ondersteund Firefox en het werkt!
 
 ![Smartphone with unknown error](readme-content/unknown-error.jpg)
-Smartphone laat het content zien. Maar het manipuleren van de filters en sorteren werkt niet.
+Smartphone laat het content zien. Maar het aanpassen met de filters en sorteren werkt nog niet.
 
 -----------------
 
