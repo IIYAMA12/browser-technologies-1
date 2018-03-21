@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Image picker</title>
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body>
+        <style>
+            body {
+                font-family: sans-serif;
+                margin: 0;
+            }
+
+            figure {
+                margin: 0;
+            }
+
+            @supports (content: "") {
+                input + p {
+                    display: none;
+                    visibility: hidden;
+                }
+                input:disabled + p {
+                    display: unset !important;
+                    visibility: unset !important;
+                }
+            }
+        </style>
+        <main>
+            <form id="image-preview">
+                <figure>
+                    <img src="" alt="">
+                    <figcaption></figcaption>
+                </figure>
+                <input type="file" name="image-upload">
+            </form>
+        </main>
+    </body>
+    <script>
+        (function (){
+            var inputElement = document.getElementById("image-preview").getElementsByTagName("input")[0];
+            var imageContainer = document.getElementById("image-preview").getElementsByTagName("figure")[0];
+            var figcaptionElement = imageContainer.getElementsByTagName("figcaption")[0];
+
+            ////////////////////////
+            // disable FileReader //
+
+            // delete window.FileReader;
+
+            var addTextToElement = function (element, text) {
+                if ("textContent" in document) {
+                    element.textContent = text;
+                } else if ("innerHTML" in document) {
+                    element.innerHTML = text;
+                } else {
+                    element.appendChild(document.createTextNode(text));
+                }
+            }
+
+
+            if ("FileReader" in window) {
+
+                // var feedbackElement = document.getElementById("image-preview").getElementsByTagName("p")[0];
+                // inputElement.removeAttribute("disabled");
+                inputElement.addEventListener("change", function (e) {
+                    var fileList = this.files;
+                // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+                    var reader = new FileReader();
+                    reader.onload = (function(image) {
+                        return function(e) {
+                            var source = e.target != undefined ? e.target : e.srcElement;
+
+
+                            if (source.result != undefined) {
+                                image.src = source.result;
+                                if (figcaptionElement != undefined) {
+                                    addTextToElement(figcaptionElement, "Preview");
+                                }
+                            } else {
+                            }
+                        };
+                    })(document.getElementById("image-preview").getElementsByTagName("img")[0]);
+
+                    reader.readAsDataURL(fileList[0]);
+                });
+            } else {
+
+                ///////////////////////////
+                // remove previous image //
+
+
+                if (imageContainer) {
+                    imageContainer.parentElement.removeChild(imageContainer);
+                }
+            }
+        })();
+    </script>
+</html>

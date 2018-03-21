@@ -1,0 +1,1 @@
+ol section:not(.open) *:not(button){display:none;visibility:hidden}

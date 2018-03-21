@@ -1,0 +1,111 @@
+// Accordeon //
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+summary, button {
+    cursor: pointer;
+}
+
+main > * {
+    width: 100vw;
+}
+
+#accordeon {
+    display: grid;
+    $ol-width: 20rem;
+    ol {
+        padding: 0;
+        width: $ol-width;
+        max-width: 100vw;
+        position: relative;
+        @media (min-width: $ol-width) {
+            left: calc(100vw - #{$ol-width});
+        }
+    }
+    li {
+        margin-bottom: 1rem;
+    }
+    li, details, section, ol {
+        box-sizing: border-box;
+    }
+    summary, button {
+        padding: 1rem;
+        background-color: rgb(50, 50, 50);
+        font-size: 1rem;
+        transition: background-color 0.1s;
+        &:hover, &:focus {
+            background-color: rgb(100, 100, 100);
+        }
+        box-shadow: 0 4px 4px rgba(0,0,0,.15);
+    }
+
+    button {
+        color: inherit;
+        width: 100%;
+        border: none;
+        text-align: left;
+    }
+
+    details, section {
+        color: white;
+        background-color: white;
+
+        > div {
+            color: black;
+            min-height: 3rem;
+            padding: 1rem;
+            transition: transform 0.2s;
+            transform: translateX(-100%);
+            background-color: rgb(250, 255, 250);
+
+            @media (min-width: $ol-width) and (max-width: $ol-width * 2) {
+                transform: translateX(calc(-100vw + #{$ol-width}));
+            }
+            @media (max-width: $ol-width) {
+                transform: translateX(0);
+            }
+            @supports not (box-shadow: 0 4px 4px rgba(0,0,0,.15)) {
+                border: 0.5px solid rgb(150, 150, 150);
+            }
+            box-shadow: 0 4px 4px rgba(0,0,0,.15);
+        }
+    }
+    details {
+        &:not([open]) > div {
+            height: 0;
+            transform: translateX(0%);
+        }
+    }
+    section {
+        &:not(.open) > div {
+            height: 0;
+            transform: translateX(0%);
+        }
+    }
+
+}
+
+@supports (content: "") {
+    #accordeon {
+        ol {
+            counter-reset: section;
+            list-style-type: none;
+        }
+        li {
+            counter-increment: section;
+            list-style-type: inherit;
+        }
+        summary::after, button::after {
+            content: " " counter(section);
+        }
+    }
+}
+
+ol {
+    section:not(.open) *:not(button) {
+        display: none;
+        visibility: hidden;
+    }
+}

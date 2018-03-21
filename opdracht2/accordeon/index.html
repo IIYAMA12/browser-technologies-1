@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Accordeon</title>
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body>
+        <style>
+
+        </style>
+        <main>
+            <section id="accordeon">
+                <ol>
+                    <li>
+                        <details>
+                            <summary>Koop</summary>
+                            <div>
+                                <p>Likes my handwriting. (not)</p>
+                            </div>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Krijn</summary>
+                            <div>
+                                <p>Likes Aria attributes (not)</p>
+                            </div>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Joost</summary>
+                            <div>
+                                <p>Likes it, when people who are too late. (not)</p>
+                            </div>
+                        </details>
+                    </li>
+                </ol>
+            </section>
+        </main>
+        <script>
+            (function () {
+
+                //////////////////////////////////////
+                // function to replace element tags //
+                var replaceTags = function (startElement, tag) {
+                    if (startElement != undefined && tag != undefined) {
+                        // collect information of the element //
+                        var content = startElement.innerHTML;
+                        var container = startElement.parentElement;
+
+                        // make the new element //
+                        var newElement = document.createElement(tag);
+
+                        // move the old content inside //
+                        newElement.innerHTML = content;
+
+                        // replace the tag //
+                        container.replaceChild(newElement, startElement);
+
+                        return newElement;
+                    }
+                };
+
+                /////////////////////////////////////////////////
+                // replacement for Array.from if not supported //
+                var convertListToArray = function (list) {
+                    var newArray = [];
+                    for (var i = 0; i < list.length; i++) {
+                        newArray[newArray.length] = list[i];
+                    }
+                    return newArray;
+                };
+
+                ///////////////////////////
+                // manually show details //
+                var openCustomAccordeon = function (e) {
+                    var source = e.target != undefined ? e.target : e.srcElement;
+                    if (source.tagName === "BUTTON") {
+                        var sections = document.getElementsByTagName("ol")[0].getElementsByTagName("section");
+
+                        var parentElement = source.parentElement; //!= undefined ? source.parentElement != undefined : parentElement.parentNode
+
+                        // get the previous state of the clicked button //
+                        var previousState = parentElement.className === "open";
+
+                        // clear all states //
+                        for (var i = 0; i < sections.length; i++) {
+                            sections[i].className = "";
+                        }
+
+                        // Toggle the state //
+                        parentElement.className = !previousState ? "open" : "";
+                    }
+                };
+
+                var openAccordeon = function (e) {
+                    var source = e.target != undefined ? e.target : e.srcElement;
+                    if (source.tagName === "SUMMARY") {
+                        var details = document.getElementsByTagName("ol")[0].getElementsByTagName("details");
+
+                        var parentElement = source.parentElement; //!= undefined ? source.parentElement != undefined : parentElement.parentNode
+
+                        // get the previous state of the clicked button //
+                        var previousState = parentElement.getAttribute("open") === "";
+
+                        // clear all states //
+                        for (var i = 0; i < details.length; i++) {
+                            details[i].removeAttribute("open");
+                        }
+
+                        // Toggle the state //
+                        parentElement[(previousState ? "setAttribute" : "removeAttribute")]("open", "");
+                    }
+                };
+
+                //////////////////////////////////////////////
+                // check of the detail element is supported //
+                if (!("open" in document.createElement('details'))) {
+
+                    // get all detailElements //
+                    var detailElements = (Array.from != undefined ? Array.from : convertListToArray)(document.getElementsByTagName("ol")[0].getElementsByTagName("details"));
+
+                    // replace tags and add manual control //
+                    for (var i = 0; i < detailElements.length; i++) {
+                        var detailElement = detailElements[i];
+                        var sectionElement = replaceTags(detailElement, "section");
+                        var buttonElement = replaceTags(sectionElement.getElementsByTagName("summary")[0],"button");
+
+                        (buttonElement.addEventListener != undefined ? buttonElement.addEventListener : buttonElement.attachEvent)("click", openCustomAccordeon);
+                    }
+
+                    ////////////////////
+                    // custom styling //
+
+                    // !! has now been added to the default styling !! //
+
+                    // if ("appendChild" in document) {
+                    //     var fallBackAccordeonStyle = document.createElement("link");
+                    //     fallBackAccordeonStyle.rel = "stylesheet";
+                    //     fallBackAccordeonStyle.href = "styles/accordeon-fallback.min.css";
+                    //     document.getElementsByTagName("head")[0].appendChild(fallBackAccordeonStyle);
+                    // }
+
+                } else {
+                    var detailElements = (Array.from != undefined ? Array.from : convertListToArray)(document.getElementsByTagName("ol")[0].getElementsByTagName("details"));
+                    for (var i = 0; i < detailElements.length; i++) {
+                        var detailElement = detailElements[i];
+                        var summary = detailElement.getElementsByTagName("summary")[0];
+                        if (summary != undefined) {
+                            (summary.addEventListener != undefined ? summary.addEventListener : summary.attachEvent)("click", openAccordeon);
+                        }
+                    }
+                }
+            })();
+        </script>
+    </body>
+</html>

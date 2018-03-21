@@ -1,0 +1,118 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+summary, button {
+    cursor: pointer;
+}
+
+main > * {
+    width: 100vw;
+}
+
+#accordeon {
+    display: grid;
+}
+
+#accordeon ol {
+    padding: 0;
+    width: 20rem;
+    max-width: 100vw;
+    position: relative;
+}
+
+@media (min-width: 20rem) {
+    #accordeon ol {
+        left: calc(100vw - 20rem);
+    }
+}
+
+#accordeon li {
+    margin-bottom: 1rem;
+}
+
+#accordeon li, #accordeon details, #accordeon section, #accordeon ol {
+    box-sizing: border-box;
+}
+
+#accordeon summary, #accordeon button {
+    padding: 1rem;
+    background-color: #323232;
+    font-size: 1rem;
+    transition: background-color 0.1s;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+#accordeon summary:hover, #accordeon summary:focus, #accordeon button:hover, #accordeon button:focus {
+    background-color: #646464;
+}
+
+#accordeon button {
+    color: inherit;
+    width: 100%;
+    border: none;
+    text-align: left;
+}
+
+#accordeon details, #accordeon section {
+    color: white;
+    background-color: white;
+}
+
+#accordeon details > div, #accordeon section > div {
+    color: black;
+    min-height: 3rem;
+    padding: 1rem;
+    transition: transform 0.2s;
+    transform: translateX(-100%);
+    background-color: #fafffa;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 20rem) and (max-width: 40rem) {
+    #accordeon details > div, #accordeon section > div {
+        transform: translateX(calc(-100vw + 20rem));
+    }
+}
+
+@media (max-width: 20rem) {
+    #accordeon details > div, #accordeon section > div {
+        transform: translateX(0);
+    }
+}
+
+@supports not (box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15)) {
+    #accordeon details > div, #accordeon section > div {
+        border: 0.5px solid #969696;
+    }
+}
+
+#accordeon details:not([open]) > div {
+    height: 0;
+    transform: translateX(0%);
+}
+
+#accordeon section:not(.open) > div {
+    height: 0;
+    transform: translateX(0%);
+}
+
+@supports (content: "") {
+    #accordeon ol {
+        counter-reset: section;
+        list-style-type: none;
+    }
+    #accordeon li {
+        counter-increment: section;
+        list-style-type: inherit;
+    }
+    #accordeon summary::after, #accordeon button::after {
+        content: " " counter(section);
+    }
+}
+
+ol section:not(.open) *:not(button) {
+    display: none;
+    visibility: hidden;
+}

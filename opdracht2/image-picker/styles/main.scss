@@ -1,0 +1,21 @@
+// Image picker //
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+@supports (content: "") {
+    input + p { //::after
+        display: none;
+        visibility: hidden;
+    }
+    input:disabled + p { //::after
+        display: unset !important;
+        visibility: unset !important;
+        // content: "Waiting for JavaScript.";
+    }
+}
