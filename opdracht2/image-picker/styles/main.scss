@@ -16,6 +16,5 @@ figure {
     input:disabled + p { //::after
         display: unset !important;
         visibility: unset !important;
-        // content: "Waiting for JavaScript.";
     }
 }

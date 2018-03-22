@@ -34,6 +34,7 @@
                     <figcaption></figcaption>
                 </figure>
                 <input type="file" name="image-upload">
+                
             </form>
         </main>
     </body>
@@ -61,12 +62,26 @@
 
             if ("FileReader" in window) {
 
-                // var feedbackElement = document.getElementById("image-preview").getElementsByTagName("p")[0];
-                // inputElement.removeAttribute("disabled");
                 inputElement.addEventListener("change", function (e) {
                     var fileList = this.files;
-                // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+
+                    var file = fileList[0];
+
+
+                    // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
                     var reader = new FileReader();
+
+                    if (figcaptionElement != undefined) {
+                        var timeElement = document.createElement("time");
+                        var lastModifiedDate = new Date(file.lastModified);
+
+                        addTextToElement(timeElement, lastModifiedDate.getFullYear() + "-" + (lastModifiedDate.getMonth() + 1) + "-" + (lastModifiedDate.getDate() + 1) );
+
+                        addTextToElement(figcaptionElement, file.name + " (" + Math.ceil(file.size / 1000) + "KB) Last modified: ");
+
+                        figcaptionElement.appendChild(timeElement)
+                    }
+
                     reader.onload = (function(image) {
                         return function(e) {
                             var source = e.target != undefined ? e.target : e.srcElement;
@@ -74,21 +89,16 @@
 
                             if (source.result != undefined) {
                                 image.src = source.result;
-                                if (figcaptionElement != undefined) {
-                                    addTextToElement(figcaptionElement, "Preview");
-                                }
-                            } else {
                             }
                         };
                     })(document.getElementById("image-preview").getElementsByTagName("img")[0]);
 
-                    reader.readAsDataURL(fileList[0]);
+                    reader.readAsDataURL(file);
                 });
             } else {
 
                 ///////////////////////////
                 // remove previous image //
-
 
                 if (imageContainer) {
                     imageContainer.parentElement.removeChild(imageContainer);

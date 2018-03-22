@@ -24,7 +24,7 @@
                         <details>
                             <summary>Krijn</summary>
                             <div>
-                                <p>Likes Aria attributes (not)</p>
+                                <p>Likes Aria attributes. (not)</p>
                             </div>
                         </details>
                     </li>
@@ -77,50 +77,52 @@
                 // manually show details //
                 var openCustomAccordeon = function (e) {
                     var source = e.target != undefined ? e.target : e.srcElement;
-                    if (source.tagName === "BUTTON") {
-                        var sections = document.getElementsByTagName("ol")[0].getElementsByTagName("section");
 
-                        var parentElement = source.parentElement; //!= undefined ? source.parentElement != undefined : parentElement.parentNode
+                    var sections = document.getElementsByTagName("ol")[0].getElementsByTagName("section");
 
-                        // get the previous state of the clicked button //
-                        var previousState = parentElement.className === "open";
+                    var parentElement = source.parentElement; //!= undefined ? source.parentElement != undefined : parentElement.parentNode
 
-                        // clear all states //
-                        for (var i = 0; i < sections.length; i++) {
-                            sections[i].className = "";
-                        }
+                    // get the previous state of the clicked button //
+                    var previousState = parentElement.className === "open";
 
-                        // Toggle the state //
-                        parentElement.className = !previousState ? "open" : "";
+                    // clear all states //
+                    for (var i = 0; i < sections.length; i++) {
+                        sections[i].className = "";
                     }
+
+                    // Toggle the state //
+                    parentElement.className = !previousState ? "open" : "";
+
                 };
 
                 var openAccordeon = function (e) {
                     var source = e.target != undefined ? e.target : e.srcElement;
-                    if (source.tagName === "SUMMARY") {
-                        var details = document.getElementsByTagName("ol")[0].getElementsByTagName("details");
 
-                        var parentElement = source.parentElement; //!= undefined ? source.parentElement != undefined : parentElement.parentNode
+                    var details = document.getElementsByTagName("ol")[0].getElementsByTagName("details");
 
-                        // get the previous state of the clicked button //
-                        var previousState = parentElement.getAttribute("open") === "";
+                    var parentElement = source.parentElement; //!= undefined ? source.parentElement != undefined : parentElement.parentNode
 
-                        // clear all states //
-                        for (var i = 0; i < details.length; i++) {
-                            details[i].removeAttribute("open");
-                        }
+                    // get the previous state of the clicked button //
+                    var previousState = parentElement.getAttribute("open") === "";
 
-                        // Toggle the state //
-                        parentElement[(previousState ? "setAttribute" : "removeAttribute")]("open", "");
+                    // clear all states //
+                    for (var i = 0; i < details.length; i++) {
+                        details[i].removeAttribute("open");
                     }
+
+                    // Toggle the state //
+                    parentElement[(previousState ? "setAttribute" : "removeAttribute")]("open", "");
                 };
+
+                // Support Array.from for all devices
+                var listToArray = (Array.from != undefined ? Array.from : convertListToArray);
 
                 //////////////////////////////////////////////
                 // check of the detail element is supported //
                 if (!("open" in document.createElement('details'))) {
 
                     // get all detailElements //
-                    var detailElements = (Array.from != undefined ? Array.from : convertListToArray)(document.getElementsByTagName("ol")[0].getElementsByTagName("details"));
+                    var detailElements = listToArray(document.getElementsByTagName("ol")[0].getElementsByTagName("details"));
 
                     // replace tags and add manual control //
                     for (var i = 0; i < detailElements.length; i++) {
@@ -128,28 +130,19 @@
                         var sectionElement = replaceTags(detailElement, "section");
                         var buttonElement = replaceTags(sectionElement.getElementsByTagName("summary")[0],"button");
 
-                        (buttonElement.addEventListener != undefined ? buttonElement.addEventListener : buttonElement.attachEvent)("click", openCustomAccordeon);
+                        buttonElement.addEventListener("click", openCustomAccordeon);
                     }
 
-                    ////////////////////
-                    // custom styling //
-
-                    // !! has now been added to the default styling !! //
-
-                    // if ("appendChild" in document) {
-                    //     var fallBackAccordeonStyle = document.createElement("link");
-                    //     fallBackAccordeonStyle.rel = "stylesheet";
-                    //     fallBackAccordeonStyle.href = "styles/accordeon-fallback.min.css";
-                    //     document.getElementsByTagName("head")[0].appendChild(fallBackAccordeonStyle);
-                    // }
-
                 } else {
-                    var detailElements = (Array.from != undefined ? Array.from : convertListToArray)(document.getElementsByTagName("ol")[0].getElementsByTagName("details"));
+
+
+                    // Add an listener for the default detail element, so that it also works as an accordeon //
+                    var detailElements = listToArray(document.getElementsByTagName("ol")[0].getElementsByTagName("details"));
                     for (var i = 0; i < detailElements.length; i++) {
                         var detailElement = detailElements[i];
                         var summary = detailElement.getElementsByTagName("summary")[0];
                         if (summary != undefined) {
-                            (summary.addEventListener != undefined ? summary.addEventListener : summary.attachEvent)("click", openAccordeon);
+                            summary.addEventListener("click", openAccordeon);
                         }
                     }
                 }
