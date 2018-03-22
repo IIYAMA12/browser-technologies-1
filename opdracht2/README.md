@@ -36,13 +36,31 @@
     <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/removeChild-support.png" alt="removeChild ondersteuning">
 </details>
 
-## Test ronden 1
+## Test ronden 1 (Beide componenten)
 
 Voor dat de eerste test ronden heeft plaatst gevonden, heb ik zoveel mogelijk features bekeken of ze mogelijk ergens niet ondersteund werden.
 
 <details>
-    <summary>Maar helaas toch niet allemaal:</summary>
-    <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/classList-error.jpg" alt="classList error">
-
-    <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/classList-error-fix.jpg" alt="classList fix">
+<summary>Maar helaas toch niet allemaal:</summary>
+<img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/classList-error.jpg" alt="classList error">
+<p>De classList methode was niet beschikbaar op de windows tablet in Internet Explorer. Deze wordt gebruikt om de accordeon te openen en te sluiten op het moment dat de detail element niet beschikbaar is.</p>
+<img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/classList-error-fix.jpg" alt="classList fix">
+<p>Een snelle fix er achteraan gegooid tijdens het testen.</p>
 </details>
+
+
+### Nieuwe code:
+```JS
+// get the previous state of the clicked button //
+var previousState = parentElement.className === "open";
+
+// clear all states //
+for (var i = 0; i < sections.length; i++) {
+    sections[i].className = "";
+}
+
+// Toggle the state //
+parentElement.className = !previousState ? "open" : "";
+```
+
+Inplaats van de classList is nu de oudere className methode gebruikt. Het nadeel van deze methode is, dat je handmatig de class string moet manipuleren. Dit is geen probleem als je maar één class gebruikt, maar wel irritant als je er meer hebt.
