@@ -34,7 +34,7 @@
                     <figcaption></figcaption>
                 </figure>
                 <input type="file" name="image-upload">
-                
+
             </form>
         </main>
     </body>
@@ -79,7 +79,7 @@
 
                         addTextToElement(figcaptionElement, file.name + " (" + Math.ceil(file.size / 1000) + "KB) Last modified: ");
 
-                        figcaptionElement.appendChild(timeElement)
+                        figcaptionElement.appendChild(timeElement);
                     }
 
                     reader.onload = (function(image) {

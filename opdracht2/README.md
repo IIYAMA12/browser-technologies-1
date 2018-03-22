@@ -36,9 +36,79 @@
     <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/removeChild-support.png" alt="removeChild ondersteuning">
 </details>
 
+## Voorbereiding op de test rondes
+Voordat het prototype getest werd, heb ik zoveel mogelijk features bekeken of ze mogelijk ergens niet ondersteund worden.
+
+### JS syntax / keywords
+Ook is er in de prototype rekening gehouden met het gebruik van de vorige syntax / keywords.
+
+Well:
+```JS
+var variable;
+```
+
+Niet:
+```JS
+let variable1; // Geen let
+const variable2; // Geen const
+
+var variable3 // Niet vergeten om de regel af te sluiten (;)
+```
+### HTML tag support controleren met JS
+```JS
+if (!("open" in document.createElement('details'))) {
+
+}
+```
+
+Niet ondersteund? Vervang tags met JavaScript!
+```JS
+//////////////////////////////////////
+// function to replace element tags //
+var replaceTags = function (startElement, tag) {
+    if (startElement != undefined && tag != undefined) {
+        // collect information of the element //
+        var content = startElement.innerHTML;
+        var container = startElement.parentElement;
+
+        // make the new element //
+        var newElement = document.createElement(tag);
+
+        // move the old content inside //
+        newElement.innerHTML = content;
+
+        // replace the tag //
+        container.replaceChild(newElement, startElement);
+
+        return newElement;
+    }
+};
+```
+
+Voor:
+```HTML
+<details>
+    <summary>Krijn</summary>
+    <div>
+        <p>Likes Aria attributes. (not)</p>
+    </div>
+</details>
+```
+
+Na:
+```HTML
+<section>
+    <h3>Krijn</h3>
+    <div>
+        <p>Likes Aria attributes. (not)</p>
+    </div>
+</section>
+```
+
+
 ## Test ronden 1 (Beide componenten)
 
-Voor dat de eerste test ronden heeft plaatst gevonden, heb ik zoveel mogelijk features bekeken of ze mogelijk ergens niet ondersteund werden.
+
 
 <details>
 <summary>Maar helaas toch niet allemaal:</summary>
