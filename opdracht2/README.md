@@ -101,7 +101,7 @@ Voor:
 Na:
 ```HTML
 <section>
-    <h3>Krijn</h3>
+    <button>Krijn</button>
     <div>
         <p>Likes Aria attributes. (not)</p>
     </div>
