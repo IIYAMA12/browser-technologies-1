@@ -133,6 +133,8 @@ Als CSS ondersteund wordt komen de cijfers na de kopjes te staan. Bij geen CSS o
 }
 ```
 
+Informatie over de [CSS counter](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters)
+
 <details>
     <summary>Lijst - CSS ondersteuning</summary>
     <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/list-css.png" alt="CSS ondersteund bij lijst">
