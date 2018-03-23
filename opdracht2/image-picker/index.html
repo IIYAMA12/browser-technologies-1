@@ -157,10 +157,12 @@
 
                     if (figcaptionElement != undefined) {
                         var timeElement = document.createElement("time");
-                        var lastModifiedDate = new Date(file.lastModified);
-
-                        addTextToElement(timeElement, lastModifiedDate.getFullYear() + "-" + (lastModifiedDate.getMonth() + 1) + "-" + (lastModifiedDate.getDate() + 1) );
-
+                        if (file.lastModified != undefined) {
+                            var lastModifiedDate = new Date(file.lastModified);
+                            if (lastModifiedDate != undefined) {
+                                addTextToElement(timeElement, lastModifiedDate.getFullYear() + "-" + (lastModifiedDate.getMonth() + 1) + "-" + (lastModifiedDate.getDate() + 1) );
+                            }
+                        }
                         addTextToElement(figcaptionElement, file.name + " (" + Math.ceil(file.size / 1000) + "KB) Last modified: ");
 
                         figcaptionElement.appendChild(timeElement);

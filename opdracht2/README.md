@@ -157,8 +157,6 @@ De @ support notatie wordt gebruik om te controleren of iets ondersteund is in d
 
 ## Test ronden 1 (Beide componenten)
 
-
-
 <details>
 <summary>Maar helaas toch niet allemaal:</summary>
 <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/classList-error.jpg" alt="classList error">
@@ -183,3 +181,31 @@ parentElement.className = !previousState ? "open" : "";
 ```
 
 Inplaats van de classList is nu de oudere className methode gebruikt. Het nadeel van deze methode is, dat je handmatig de class string moet manipuleren. Dit is geen probleem als je maar één class gebruikt, maar wel irritant als je er meer hebt.
+
+## Test ronden 2 (Beide componenten)
+
+<details>
+    <summary>Animaties niet ondersteund</summary>
+    <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/animation-unsupported.jpg" alt="Animatie ondersteund">
+</details>
+
+Maar gelukkig met de @ support wordt de afbeelding alleen kleiner als de animatie ondersteund is:
+```CSS
+@supports (animation: move-image-round 5s infinite) {
+    .crop {
+        position: absolute;
+        height: 10rem;
+        width: 10rem;
+        overflow: hidden;
+        animation: move-image-round 5s infinite;
+
+        background-color: rgb(240, 240, 240);
+        box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, 0.32);
+    }
+}
+```
+
+<details>
+    <summary>"Laatst aangepast" is niet doorgegeven aan de browser. Het geeft nu NaN-NaN-NaN weer inplaats van 2018-02-01</summary>
+    <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/animation-unsupported.jpg" alt="Animatie ondersteund">
+</details>
