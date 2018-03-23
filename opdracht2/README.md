@@ -209,3 +209,14 @@ Maar gelukkig met de @ support wordt de afbeelding alleen kleiner als de animati
     <summary>"Laatst aangepast" is niet doorgegeven aan de browser. Het geeft nu NaN-NaN-NaN weer inplaats van 2018-02-01</summary>
     <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/animation-unsupported.jpg" alt="Animatie ondersteund">
 </details>
+
+Extra condities toegevoegd
+```JS
+var timeElement = document.createElement("time");
+if (file.lastModified != undefined) {
+    var lastModifiedDate = new Date(file.lastModified);
+    if (lastModifiedDate != undefined) {
+        addTextToElement(timeElement, lastModifiedDate.getFullYear() + "-" + (lastModifiedDate.getMonth() + 1) + "-" + (lastModifiedDate.getDate() + 1) );
+    }
+}
+```
