@@ -105,6 +105,51 @@ Na:
 </section>
 ```
 
+Na, met support van CSS:
+```CSS
+ol section:not(.open) *:not(button) {
+    display: none;
+    visibility: hidden;
+}
+```
+
+### CSS syling van de geordende lijst:
+Als CSS ondersteund wordt komen de cijfers na de kopjes te staan. Bij geen CSS ondersteuning of geen `content` eigenschap komen de cijfers er standaard voor.
+
+
+```CSS
+@supports (content: "") {
+    #accordeon ol {
+        counter-reset: section;
+        list-style-type: none;
+    }
+    #accordeon li {
+        counter-increment: section;
+        list-style-type: inherit;
+    }
+    #accordeon summary::after, #accordeon button::after {
+        content: " " counter(section);
+    }
+}
+```
+
+<details>
+    <summary>Lijst - CSS ondersteuning</summary>
+    <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/list-css.png" alt="CSS ondersteund bij lijst">
+</details>
+
+<details>
+    <summary>Lijst - Geen CSS ondersteuning</summary>
+    <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/list-no-css.png" alt="Geen CSS ondersteund bij lijst">
+</details>
+
+De @ support notatie wordt gebruik om te controleren of iets ondersteund is in de browser. Voor meer informatie [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports).
+
+```CSS
+@supports (content: "") {
+    /* Content is cool! */
+}
+```
 
 ## Test ronden 1 (Beide componenten)
 
@@ -113,7 +158,7 @@ Na:
 <details>
 <summary>Maar helaas toch niet allemaal:</summary>
 <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/classList-error.jpg" alt="classList error">
-<p>De classList methode was niet beschikbaar op de windows tablet in Internet Explorer. Deze wordt gebruikt om de accordeon te openen en te sluiten op het moment dat de detail element niet beschikbaar is.</p>
+<p>De classList methode was niet beschikbaar op de windows tablet in Internet Explorer. Deze wordt gebruikt om de accordeon te openen en te sluiten, op het moment dat de detail element niet beschikbaar is.</p>
 <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/classList-error-fix.jpg" alt="classList fix">
 <p>Een snelle fix er achteraan gegooid tijdens het testen.</p>
 </details>
