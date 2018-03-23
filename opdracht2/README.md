@@ -157,6 +157,8 @@ De @ support notatie wordt gebruik om te controleren of iets ondersteund is in d
 
 ## Test ronden 1 (Beide componenten)
 
+### Accordeon
+
 <details>
 <summary>Maar helaas toch niet allemaal:</summary>
 <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/classList-error.jpg" alt="classList error">
@@ -166,7 +168,7 @@ De @ support notatie wordt gebruik om te controleren of iets ondersteund is in d
 </details>
 
 
-### Nieuwe code:
+#### Nieuwe code:
 ```JS
 // get the previous state of the clicked button //
 var previousState = parentElement.className === "open";
@@ -184,6 +186,8 @@ Inplaats van de classList is nu de oudere className methode gebruikt. Het nadeel
 
 ## Test ronden 2 (Beide componenten)
 
+
+### Image picker
 <details>
     <summary>Animaties niet ondersteund</summary>
     <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/animation-unsupported.jpg" alt="Animatie ondersteund">
@@ -220,3 +224,10 @@ if (file.lastModified != undefined) {
     }
 }
 ```
+
+### Accordeon
+<details>
+    <summary>Accordeon sluit niet meer als je op hetzelfde item drukt.</summary>
+    <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/doesnt-close.jpg" alt="Accordeon">
+    <p>Oorzaak nog steeds onbekend.</p>
+</details>
