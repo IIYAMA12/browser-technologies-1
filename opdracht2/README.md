@@ -2,15 +2,16 @@
 
 [Opdracht 2 - 1, 2, 3 Feature Detectie](ASSIGNMENT.md)
 
-[Image picker](https://iiyama12.github.io/browser-technologies-1/opdracht2/image-picker/)
-[Accordeon](https://iiyama12.github.io/browser-technologies-1/opdracht2/accordeon/)
+Componenten
+* [Image picker](https://iiyama12.github.io/browser-technologies-1/opdracht2/image-picker/)
+* [Accordeon](https://iiyama12.github.io/browser-technologies-1/opdracht2/accordeon/)
 
 ## Features, waarvan ik zou verwachten dat ze geheel ondersteund worden:
 <details>
     <summary>textContent ondersteuning</summary>
     <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/textContent-support.png" alt="textContent ondersteuning">
     <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/textContent2-support.png" alt="textContent ondersteuning">
-    <p>Internet Explorer, opmerkelijk slakkig.</p>
+    <p>Internet Explorer, opmerkelijk slakachtig.</p>
 </details>
 
 <details>
@@ -230,4 +231,35 @@ if (file.lastModified != undefined) {
     <summary>Accordeon sluit niet meer als je op hetzelfde item drukt.</summary>
     <img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/doesnt-close.jpg" alt="Accordeon">
     <p>Oorzaak nog steeds onbekend.</p>
+</details>
+
+
+## polyfill of is de Array.from methode nog te nieuw?
+
+```JS
+var convertListToArray = function (list) {
+    var newArray = [];
+    for (var i = 0; i < list.length; i++) {
+        newArray[newArray.length] = list[i];
+    }
+    return newArray;
+};
+```
+VS ECMAScript 6
+
+```JS
+Array.from
+```
+
+Fallback
+```JS
+var listToArray = (Array.from != undefined ? Array.from : convertListToArray);
+```
+
+<details>
+<summary>Array.from ondersteuning.</summary>
+<img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/arrayFrom-support.png" alt="arrayFrom ondersteuning">
+<p>Internet explorer en Kong niet ondersteund.</p>
+<img src="https://github.com/IIYAMA12/browser-technologies-1/blob/master/opdracht2/readme-content/arrayFrom-support2.png" alt="arrayFrom ondersteuning">
+<p>Slecht door compilers ondersteund.</p>
 </details>
