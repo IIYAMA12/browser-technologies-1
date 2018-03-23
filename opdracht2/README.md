@@ -2,6 +2,8 @@
 
 [Opdracht 2 - 1, 2, 3 Feature Detectie](ASSIGNMENT.md)
 
+[Image picker](https://iiyama12.github.io/browser-technologies-1/opdracht2/image-picker/)
+[Accordeon](https://iiyama12.github.io/browser-technologies-1/opdracht2/accordeon/)
 
 ## Features, waarvan ik zou verwachten dat ze geheel ondersteund worden:
 <details>
