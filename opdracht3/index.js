@@ -289,5 +289,5 @@ window.addEventListener("load", function () {
 
     document.addEventListener("keypress",gameData.controller.functions.keyboard);
     canvasElement.addEventListener("mousemove",gameData.controller.functions.mouse);
-    window.addEventListener("touchmove",gameData.controller.functions.mouse);
+    canvasElement.addEventListener("touchmove",gameData.controller.functions.touch);
 });
