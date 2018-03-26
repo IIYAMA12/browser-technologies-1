@@ -93,7 +93,7 @@ var gameData = {
 
                 self.position.player1 = 50;
                 self.position.player2 = 50;
-                document.getElementById("test-touch").innerHTML = e;
+                document.getElementById("test-touch").innerHTML = "heeeYY";
             }
         },
         position: {
