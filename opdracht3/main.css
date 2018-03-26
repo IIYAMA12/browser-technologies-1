@@ -7,12 +7,24 @@ main {
     width: 40rem;
     max-width: 100vw;
     margin: auto;
+    position: relative;
 }
 
 button {
     min-height: 4rem;
     min-width: 4rem;
     cursor: pointer;
+}
+
+canvas {
+    margin: auto;
+    display: block;
+}
+
+#touch-and-cursor-element {
+    width: 140%;
+    position: relative;
+    left: -20%;
 }
 
 #controls {

@@ -207,7 +207,7 @@ var gameData = {
                 var ballAbsolutePositionY = ballPosition.y / 100 * canvasData.size;
 
 
-                var barWidth = 10 * sizeScaleFactor;
+                var barWidth = 20 * sizeScaleFactor;
                 var barHeight = 100 * sizeScaleFactor;
 
 
@@ -374,18 +374,20 @@ window.addEventListener("load", function () {
         canvasElement.width = domRect.width;
         canvasElement.height = domRect.width;
     } else { // IE 8
-        canvasElement.width = 640;
-        canvasElement.height = 640;
+        canvasElement.width = 600;
+        canvasElement.height = 600;
     }
 
     gameData.canvas.data.size = canvasElement.width;
 
     gameData.canvas.element = canvasElement;
 
+
+
     var controlsSectionElement = document.createElement("section");
     controlsSectionElement.id = "controls";
 
-    var containerElement = document.createElement("div");
+    var controlsContainerElement = document.createElement("div");
 
     var controlsHeadingElement = document.createElement("h2");
     controlsHeadingElement.appendChild(document.createTextNode("Controls"));
@@ -426,17 +428,21 @@ window.addEventListener("load", function () {
 
 
 
-        containerElement.appendChild(playerSectionElement);
+        controlsContainerElement.appendChild(playerSectionElement);
     }
 
-    controlsSectionElement.appendChild(containerElement);
+    controlsSectionElement.appendChild(controlsContainerElement);
 
+    var touchAndCursorElement = document.createElement("div");
+    touchAndCursorElement.appendChild(canvasElement);
 
-    mainElement.appendChild(canvasElement);
+    touchAndCursorElement.id = "touch-and-cursor-element";
+
+    mainElement.appendChild(touchAndCursorElement);
     mainElement.appendChild(controlsSectionElement);
     gameData.canvas.render.start();
 
     document.addEventListener("keypress",gameData.controller.functions.keyboard);
-    canvasElement.addEventListener("mousemove",gameData.controller.functions.mouse);
-    canvasElement.addEventListener("touchmove",gameData.controller.functions.touchMove, false);
+    touchAndCursorElement.addEventListener("mousemove",gameData.controller.functions.mouse);
+    touchAndCursorElement.addEventListener("touchmove",gameData.controller.functions.touchMove, false);
 });
