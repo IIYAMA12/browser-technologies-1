@@ -1,8 +1,24 @@
-
 'use strict';
 
 
 var gameData = {
+    playerData: {
+        score: {
+            player1: 0,
+            player2: 0,
+        }
+    },
+    gameSpeed: {
+        gameSpeedMultiplier: 1,
+        increaseSpeed: function () {
+            var self = gameData.gameSpeed;
+            self.gameSpeedMultiplier += 0.05;
+        },
+        resetSpeed: function () {
+            var self = gameData.gameSpeed;
+            self.gameSpeedMultiplier = 1;
+        }
+    },
     controller: {
         sensitivity: 15,
         functions: {
@@ -88,12 +104,45 @@ var gameData = {
 
                 }
             },
-            touch: function (e) {
-                var self = gameData.controller;
 
-                self.position.player1 = 50;
-                self.position.player2 = 50;
-                document.getElementById("test-touch").innerHTML = JSON.stringify(e);
+            touchMove: function (e) {
+                var source = e.target;
+                var self = gameData.controller;
+                var canvasData = gameData.canvas.data;
+
+
+                // max 2 fingers
+                for (var i = 0; i < Math.min(2, e.targetTouches.length); i++ ) {
+                    var clientY = parseInt(e.targetTouches[i].clientY);
+                    var clientX = parseInt(e.targetTouches[i].clientX);
+
+
+                    if (clientY != undefined && clientX != undefined) {
+
+
+
+                        var cursorPositionY = clientY - source.getBoundingClientRect().top;
+                        var cursorPositionX = clientX - source.getBoundingClientRect().left;
+
+                        if (cursorPositionY > 0 && cursorPositionY < canvasData.size && cursorPositionX > 0 && cursorPositionX < canvasData.size) {
+
+                            var sizeScaleFactor = canvasData.size / 640;
+                            var barHeight = 100 * sizeScaleFactor;
+
+
+                            var position = ((cursorPositionY - (barHeight / 2)) / (canvasData.size - barHeight)) * 100;
+
+
+                            position = gameData.utility.setValueLimit(position, 0, 100);
+                            if (cursorPositionX < canvasData.size / 2) {
+                                self.position.player1 = position;
+                            } else {
+                                self.position.player2 = position;
+                            }
+                            e.preventDefault();
+                        }
+                    }
+                }
             }
         },
         position: {
@@ -114,6 +163,10 @@ var gameData = {
                     position: {
                         x: 50,
                         y: 50
+                    },
+                    velocity: {
+                        x: (1 - Math.random() * 2) > 0 ? 0.5 : -0.5,
+                        y: (1 - Math.random() * 2) > 0 ? 0.5 : -0.5
                     }
                 }
             }
@@ -122,10 +175,12 @@ var gameData = {
         render: {
             func: function (timeStamp) {
 
-                var speedFactor = (timeStamp - gameData.canvas.render.lastTimeStamp) / 17;
+                var speedFactor = 1;
+                if (gameData.canvas.render.lastTimeStamp != undefined) {
+                    speedFactor = (timeStamp - gameData.canvas.render.lastTimeStamp) / 17;
+                }
 
-                var speed = speedFactor * 1.5;
-                // console.log(speed);
+
 
                 gameData.canvas.render.lastTimeStamp = timeStamp;
 
@@ -135,16 +190,50 @@ var gameData = {
 
                 var sizeScaleFactor = canvasData.size / 640;
 
+
+
+                var ball = canvasData.components.ball;
+
+                var ballRadius = 10 * sizeScaleFactor;
+                var ballRadiusPercentage = ballRadius * 100 / canvasData.size;
+
+                var ballPosition = ball.position;
+                var ballVelocity = ball.velocity;
+
+                ballPosition.x = ballPosition.x + (ballVelocity.x * speedFactor * gameData.gameSpeed.gameSpeedMultiplier);
+                ballPosition.y = ballPosition.y + (ballVelocity.y * speedFactor * gameData.gameSpeed.gameSpeedMultiplier);
+
+                var ballAbsolutePositionX = ballPosition.x / 100 * canvasData.size;
+                var ballAbsolutePositionY = ballPosition.y / 100 * canvasData.size;
+
+
+                var barWidth = 10 * sizeScaleFactor;
+                var barHeight = 100 * sizeScaleFactor;
+
+
                 context.fillStyle = "white";
-                // context.strokeStyle = "black";
 
                 context.strokeStyle = "black";
 
                 context.fillRect(0, 0, canvasData.size, canvasData.size);
+                //
                 context.strokeRect(1, 1, canvasData.size - 2, canvasData.size - 2);
 
                 context.fillStyle = "black";
 
+                context.fillRect(0, 0, barWidth, canvasData.size);
+
+                context.fillRect(canvasData.size - barWidth, 0, canvasData.size, canvasData.size);
+
+
+
+
+
+
+                // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
+                context.fillStyle = "orange";
+
+                var barSpeed = speedFactor * 1.7;
                 var players = ["player1", "player2"];
                 for (var i = 0; i < players.length; i++) {
                     var player = players[i];
@@ -154,31 +243,90 @@ var gameData = {
                     var componentPosition = playerComponent.position;
 
                     if (controllerPosition > componentPosition) {
-                        componentPosition = componentPosition + speed;
+                        componentPosition = componentPosition + barSpeed;
                         if (componentPosition > controllerPosition) {
                             componentPosition = controllerPosition;
                         }
 
                     } else if (controllerPosition < componentPosition) {
-                        componentPosition = componentPosition - speed;
+                        componentPosition = componentPosition - barSpeed;
                         if (componentPosition < controllerPosition) {
                             componentPosition = controllerPosition;
                         }
                     }
 
                     canvasData.components[player].position = componentPosition;
-                    var barWidth = 10 * sizeScaleFactor;
-                    var barHeight = 100 * sizeScaleFactor;
+
                     context.fillRect(i * (canvasData.size - barWidth), (canvasData.size - barHeight) * (componentPosition / 100) ,  barWidth, barHeight);
                 }
 
+                var sideOffsetX = barWidth / canvasData.size * 100;
+                var barDetectionArea = barHeight / canvasData.size * 100;
 
+                if (ballPosition.x < sideOffsetX || ballPosition.x > 100 - sideOffsetX) {
+                    if (ballPosition.x < sideOffsetX) {
+                        ballPosition.x = sideOffsetX;
+                    } else {
+                        ballPosition.x = 100 - sideOffsetX;
+                    }
+
+                    ballVelocity.x = -ballVelocity.x;
+
+
+
+                    if (ballPosition.x == sideOffsetX) {
+                        var playerComponent = canvasData.components.player1;
+                        var componentPosition = playerComponent.position;
+
+                        componentPosition = (100 - barDetectionArea) / 100 * componentPosition;
+
+                        if (ballPosition.y + (ballRadiusPercentage / 2) > componentPosition && ballPosition.y - (ballRadiusPercentage / 2) < componentPosition + barDetectionArea) {
+                            gameData.gameSpeed.increaseSpeed();
+                        } else {
+                            gameData.playerData.score.player2 += 1;
+                            ballPosition.x = 50,
+                            ballPosition.y = 50;
+                            gameData.gameSpeed.resetSpeed();
+                        }
+                    } else if (ballPosition.x == 100 - sideOffsetX) {
+
+                        var playerComponent = canvasData.components.player2;
+                        var componentPosition = playerComponent.position;
+
+                        componentPosition = (100 - barDetectionArea) / 100 * componentPosition;
+
+                        if (ballPosition.y + (ballRadiusPercentage / 2) > componentPosition && ballPosition.y - (ballRadiusPercentage / 2) < componentPosition + barDetectionArea) {
+                            gameData.gameSpeed.increaseSpeed();
+                        } else {
+                            gameData.playerData.score.player1 += 1;
+                            ballPosition.x = 50,
+                            ballPosition.y = 50;
+                            gameData.gameSpeed.resetSpeed();
+                        }
+                    }
+                } else if (ballPosition.y < 0 || ballPosition.y > 100) {
+                    if (ballPosition.y < 0) {
+                        ballPosition.y = 0;
+                    } else {
+                        ballPosition.y = 100;
+                    }
+                    ballVelocity.y = -ballVelocity.y;
+                }
+
+
+
+                context.fillStyle = "black";
+
+                context.beginPath();
+                context.arc(ballRadius + (canvasData.size - ballRadius * 2) * (ballPosition.x / 100), ballRadius + (canvasData.size - ballRadius  * 2) * (ballPosition.y / 100), ballRadius, 0, 2 * Math.PI);
+                context.fill();
+                context.stroke();
 
                 gameData.canvas.render.animationFrameRequest = window.requestAnimationFrame(gameData.canvas.render.func);
             },
             start: function () {
                 if (this.animationFrameRequest == undefined) {
-                    this.lastTimeStamp = new Date().getTime();
+                    // this.lastTimeStamp = new Date().getTime();
                     this.animationFrameRequest= window.requestAnimationFrame(this.func);
                 }
             },
@@ -243,6 +391,7 @@ window.addEventListener("load", function () {
     controlsHeadingElement.appendChild(document.createTextNode("Controls"));
     controlsSectionElement.appendChild(controlsHeadingElement);
 
+    // Buttons per player.
     var buttonsData = [
         {
             value: "up",
@@ -289,5 +438,5 @@ window.addEventListener("load", function () {
 
     document.addEventListener("keypress",gameData.controller.functions.keyboard);
     canvasElement.addEventListener("mousemove",gameData.controller.functions.mouse);
-    canvasElement.addEventListener("touchmove",gameData.controller.functions.touch);
+    canvasElement.addEventListener("touchmove",gameData.controller.functions.touchMove, false);
 });
