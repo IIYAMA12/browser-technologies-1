@@ -6,13 +6,18 @@ var gameData = {
         score: {
             player1: 0,
             player2: 0,
+        },
+        givePlayerScore: function(player, score) {
+            var self = gameData.playerData;
+            self.score[player] += score;
+            document.getElementById("score-" + player).getElementsByTagName("span")[0].textContent = self.score[player];
         }
     },
     gameSpeed: {
         gameSpeedMultiplier: 1,
         increaseSpeed: function () {
             var self = gameData.gameSpeed;
-            self.gameSpeedMultiplier += 0.05;
+            self.gameSpeedMultiplier += 0.1;
         },
         resetSpeed: function () {
             var self = gameData.gameSpeed;
@@ -124,7 +129,7 @@ var gameData = {
                         var cursorPositionY = clientY - source.getBoundingClientRect().top;
                         var cursorPositionX = clientX - source.getBoundingClientRect().left;
 
-                        if (cursorPositionY > 0 && cursorPositionY < canvasData.size && cursorPositionX > 0 && cursorPositionX < canvasData.size) {
+                        if (cursorPositionY > 0 && cursorPositionY < canvasData.size) {
 
                             var sizeScaleFactor = canvasData.size / 640;
                             var barHeight = 100 * sizeScaleFactor;
@@ -280,11 +285,13 @@ var gameData = {
 
                         componentPosition = (100 - barDetectionArea) / 100 * componentPosition;
 
-                        if (ballPosition.y + (ballRadiusPercentage / 2) > componentPosition && ballPosition.y - (ballRadiusPercentage / 2) < componentPosition + barDetectionArea) {
+                        if (ballPosition.y + (ballRadiusPercentage / 2) > componentPosition && ballPosition.y - ballRadiusPercentage < componentPosition + barDetectionArea) {
                             gameData.gameSpeed.increaseSpeed();
                         } else {
-                            gameData.playerData.score.player2 += 1;
-                            ballPosition.x = 50,
+
+                            gameData.playerData.givePlayerScore("player2", 1);
+
+                            ballPosition.x = 50;
                             ballPosition.y = 50;
                             gameData.gameSpeed.resetSpeed();
                         }
@@ -295,12 +302,14 @@ var gameData = {
 
                         componentPosition = (100 - barDetectionArea) / 100 * componentPosition;
 
-                        if (ballPosition.y + (ballRadiusPercentage / 2) > componentPosition && ballPosition.y - (ballRadiusPercentage / 2) < componentPosition + barDetectionArea) {
+                        if (ballPosition.y + (ballRadiusPercentage / 2) > componentPosition && ballPosition.y - ballRadiusPercentage < componentPosition + barDetectionArea) {
                             gameData.gameSpeed.increaseSpeed();
                         } else {
-                            gameData.playerData.score.player1 += 1;
-                            ballPosition.x = 50,
+                            gameData.playerData.givePlayerScore("player1", 1);
+
+                            ballPosition.x = 50;
                             ballPosition.y = 50;
+
                             gameData.gameSpeed.resetSpeed();
                         }
                     }
@@ -371,8 +380,8 @@ window.addEventListener("load", function () {
 
     var domRect = mainElement.getBoundingClientRect();
     if (domRect.width != undefined) {
-        canvasElement.width = domRect.width;
-        canvasElement.height = domRect.width;
+        canvasElement.width = domRect.width * 0.7;
+        canvasElement.height = domRect.width * 0.7;
     } else { // IE 8
         canvasElement.width = 600;
         canvasElement.height = 600;
@@ -433,12 +442,31 @@ window.addEventListener("load", function () {
 
     controlsSectionElement.appendChild(controlsContainerElement);
 
+    var scorePlayer1Element = document.createElement("p");
+    scorePlayer1Element.textContent = "Score player1: ";
+    var scoreIndicatorPlayer1Element = document.createElement("span");
+    scoreIndicatorPlayer1Element.textContent = "0";
+    scorePlayer1Element.append(scoreIndicatorPlayer1Element);
+    scorePlayer1Element.id = "score-player1";
+    mainElement.appendChild(scorePlayer1Element);
+
+    var scorePlayer2Element = document.createElement("p");
+    scorePlayer2Element.append(document.createTextNode("Score player2: "));
+
+    var scoreIndicatorPlayer2Element = document.createElement("span");
+    scoreIndicatorPlayer2Element.textContent = "0";
+
+    scorePlayer2Element.append(scoreIndicatorPlayer2Element);
+    scorePlayer2Element.id = "score-player2";
+    mainElement.appendChild(scorePlayer2Element);
+
     var touchAndCursorElement = document.createElement("div");
     touchAndCursorElement.appendChild(canvasElement);
 
     touchAndCursorElement.id = "touch-and-cursor-element";
 
     mainElement.appendChild(touchAndCursorElement);
+
     mainElement.appendChild(controlsSectionElement);
     gameData.canvas.render.start();
 

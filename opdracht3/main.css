@@ -4,7 +4,7 @@ body {
 }
 
 main {
-    width: 40rem;
+    width: 60rem;
     max-width: 100vw;
     margin: auto;
     position: relative;
@@ -22,13 +22,26 @@ canvas {
 }
 
 #touch-and-cursor-element {
-    width: 140%;
-    position: relative;
-    left: -20%;
+    width: 100%;
+    touch-action: none;
+}
+
+#score-player1 {
+    left: 0;
+}
+
+#score-player2 {
+    right: 0;
+}
+
+#score-player1, #score-player2 {
+    top: 0;
+    position: absolute;
 }
 
 #controls {
-    width: 100%;
+    width: 70%;
+    margin: auto;
 }
 
 #controls > div {
