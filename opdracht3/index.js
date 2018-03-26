@@ -66,7 +66,34 @@ var gameData = {
                 }
             },
             mouse: function (e) {
-                console.log("move", e);
+                var source = e.target;
+
+                var cursorPositionY = e.clientY - source.getBoundingClientRect().top;
+                var cursorPositionX = e.clientX - source.getBoundingClientRect().left;
+                // https://stackoverflow.com/questions/3234256/find-mouse-position-relative-to-element
+
+                if (cursorPositionY > 0 && cursorPositionX > 0) {
+                    var self = gameData.controller;
+                    var canvasData = gameData.canvas.data;
+                    var sizeScaleFactor = canvasData.size / 640;
+                    var barHeight = 100 * sizeScaleFactor;
+
+                    var position = ((cursorPositionY - (barHeight / 2)) / (canvasData.size - barHeight)) * 100;
+
+                    position = gameData.utility.setValueLimit(position, 0, 100);
+
+                    self.position.player1 = position;
+                    self.position.player2 = position;
+
+
+                }
+            },
+            touch: function (e) {
+                var self = gameData.controller;
+
+                self.position.player1 = 50;
+                self.position.player2 = 50;
+
             }
         },
         position: {
@@ -97,7 +124,7 @@ var gameData = {
 
                 var speedFactor = (timeStamp - gameData.canvas.render.lastTimeStamp) / 17;
 
-                var speed = speedFactor * 0.9;
+                var speed = speedFactor * 1.5;
                 // console.log(speed);
 
                 gameData.canvas.render.lastTimeStamp = timeStamp;
@@ -106,15 +133,15 @@ var gameData = {
 
                 var context = gameData.canvas.element.getContext('2d');
 
-                var sizeScaleFactor = canvasData.width / 640;
+                var sizeScaleFactor = canvasData.size / 640;
 
                 context.fillStyle = "white";
                 // context.strokeStyle = "black";
 
                 context.strokeStyle = "black";
 
-                context.fillRect(0, 0, canvasData.width, canvasData.height);
-                context.strokeRect(1, 1, canvasData.width - 2, canvasData.height - 2);
+                context.fillRect(0, 0, canvasData.size, canvasData.size);
+                context.strokeRect(1, 1, canvasData.size - 2, canvasData.size - 2);
 
                 context.fillStyle = "black";
 
@@ -142,7 +169,7 @@ var gameData = {
                     canvasData.components[player].position = componentPosition;
                     var barWidth = 10 * sizeScaleFactor;
                     var barHeight = 100 * sizeScaleFactor;
-                    context.fillRect(i * (canvasData.width - barWidth), (canvasData.width - barHeight) * (componentPosition / 100) ,  barWidth, barHeight);
+                    context.fillRect(i * (canvasData.size - barWidth), (canvasData.size - barHeight) * (componentPosition / 100) ,  barWidth, barHeight);
                 }
 
 
@@ -203,8 +230,7 @@ window.addEventListener("load", function () {
         canvasElement.height = 640;
     }
 
-    gameData.canvas.data.width = canvasElement.width;
-    gameData.canvas.data.height = canvasElement.height;
+    gameData.canvas.data.size = canvasElement.width;
 
     gameData.canvas.element = canvasElement;
 
@@ -263,4 +289,5 @@ window.addEventListener("load", function () {
 
     document.addEventListener("keypress",gameData.controller.functions.keyboard);
     canvasElement.addEventListener("mousemove",gameData.controller.functions.mouse);
+    canvasElement.addEventListener("touchmove",gameData.controller.functions.mouse);
 });
