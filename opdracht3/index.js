@@ -178,13 +178,34 @@ var gameData = {
         },
 
         render: {
+            colors: {
+                components:{
+                    ball: "black",
+                    barLeft: "black",
+                    barRight: "black",
+                },
+                setComponentColor: function (component, color) {
+                    console.log(component, color);
+                    var self = gameData.canvas.render.colors;
+                    self.components[component] = color;
+                    return true;
+                },
+                getComponentColor: function (component, color) {
+                    var self = gameData.canvas.render.colors;
+                    return self.components[component];
+                }
+            },
+
             func: function (timeStamp) {
+
+
 
                 var speedFactor = 1;
                 if (gameData.canvas.render.lastTimeStamp != undefined) {
                     speedFactor = (timeStamp - gameData.canvas.render.lastTimeStamp) / 17;
                 }
 
+                var colors = gameData.canvas.render.colors;
 
 
                 gameData.canvas.render.lastTimeStamp = timeStamp;
@@ -224,9 +245,11 @@ var gameData = {
                 //
                 context.strokeRect(1, 1, canvasData.size - 2, canvasData.size - 2);
 
-                context.fillStyle = "black";
+                context.fillStyle = colors.getComponentColor("barLeft");
 
                 context.fillRect(0, 0, barWidth, canvasData.size);
+
+                context.fillStyle = colors.getComponentColor("barRight");
 
                 context.fillRect(canvasData.size - barWidth, 0, canvasData.size, canvasData.size);
 
@@ -287,6 +310,9 @@ var gameData = {
 
                         if (ballPosition.y + (ballRadiusPercentage / 2) > componentPosition && ballPosition.y - ballRadiusPercentage < componentPosition + barDetectionArea) {
                             gameData.gameSpeed.increaseSpeed();
+
+                            colors.setComponentColor("ball", "orange");
+                            setTimeout(colors.setComponentColor, 300, "ball", "black");
                         } else {
 
                             gameData.playerData.givePlayerScore("player2", 1);
@@ -294,6 +320,9 @@ var gameData = {
                             ballPosition.x = 50;
                             ballPosition.y = 50;
                             gameData.gameSpeed.resetSpeed();
+
+                            colors.setComponentColor("barLeft", "red");
+                            setTimeout(colors.setComponentColor, 300, "barLeft", "black");
                         }
                     } else if (ballPosition.x == 100 - sideOffsetX) {
 
@@ -304,6 +333,9 @@ var gameData = {
 
                         if (ballPosition.y + (ballRadiusPercentage / 2) > componentPosition && ballPosition.y - ballRadiusPercentage < componentPosition + barDetectionArea) {
                             gameData.gameSpeed.increaseSpeed();
+
+                            colors.setComponentColor("ball", "orange");
+                            setTimeout(colors.setComponentColor, 300, "ball", "black");
                         } else {
                             gameData.playerData.givePlayerScore("player1", 1);
 
@@ -311,6 +343,9 @@ var gameData = {
                             ballPosition.y = 50;
 
                             gameData.gameSpeed.resetSpeed();
+
+                            colors.setComponentColor("barRight", "red");
+                            setTimeout(colors.setComponentColor, 300, "barRight", "black");
                         }
                     }
                 } else if (ballPosition.y < 0 || ballPosition.y > 100) {
@@ -324,12 +359,12 @@ var gameData = {
 
 
 
-                context.fillStyle = "black";
+                context.fillStyle = colors.getComponentColor("ball");
 
                 context.beginPath();
                 context.arc(ballRadius + (canvasData.size - ballRadius * 2) * (ballPosition.x / 100), ballRadius + (canvasData.size - ballRadius  * 2) * (ballPosition.y / 100), ballRadius, 0, 2 * Math.PI);
                 context.fill();
-                context.stroke();
+                // context.stroke();
 
                 gameData.canvas.render.animationFrameRequest = window.requestAnimationFrame(gameData.canvas.render.func);
             },
