@@ -481,17 +481,17 @@ window.addEventListener("load", function () {
     scorePlayer1Element.textContent = "Score player1: ";
     var scoreIndicatorPlayer1Element = document.createElement("span");
     scoreIndicatorPlayer1Element.textContent = "0";
-    scorePlayer1Element.append(scoreIndicatorPlayer1Element);
+    scorePlayer1Element.appendChild(scoreIndicatorPlayer1Element);
     scorePlayer1Element.id = "score-player1";
     mainElement.appendChild(scorePlayer1Element);
 
     var scorePlayer2Element = document.createElement("p");
-    scorePlayer2Element.append(document.createTextNode("Score player2: "));
+    scorePlayer2Element.appendChild(document.createTextNode("Score player2: "));
 
     var scoreIndicatorPlayer2Element = document.createElement("span");
     scoreIndicatorPlayer2Element.textContent = "0";
 
-    scorePlayer2Element.append(scoreIndicatorPlayer2Element);
+    scorePlayer2Element.appendChild(scoreIndicatorPlayer2Element);
     scorePlayer2Element.id = "score-player2";
     mainElement.appendChild(scorePlayer2Element);
 
