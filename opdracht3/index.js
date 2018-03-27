@@ -365,19 +365,29 @@ var gameData = {
                 context.arc(ballRadius + (canvasData.size - ballRadius * 2) * (ballPosition.x / 100), ballRadius + (canvasData.size - ballRadius  * 2) * (ballPosition.y / 100), ballRadius, 0, 2 * Math.PI);
                 context.fill();
                 // context.stroke();
-
-                gameData.canvas.render.animationFrameRequest = window.requestAnimationFrame(gameData.canvas.render.func);
+                if ("requestAnimationFrame" in window) {
+                    gameData.canvas.render.animationFrameRequest = window.requestAnimationFrame(gameData.canvas.render.func);
+                } else {
+                    console.log("using timer");
+                    gameData.canvas.render.animationTimer = setTimeout(gameData.canvas.render.func, 30, new Date().getTime());
+                }
             },
             start: function () {
                 if (this.animationFrameRequest == undefined) {
                     // this.lastTimeStamp = new Date().getTime();
-                    this.animationFrameRequest= window.requestAnimationFrame(this.func);
+                    if ("requestAnimationFrame" in window) {
+                        this.animationFrameRequest= window.requestAnimationFrame(this.func);
+                    } else {
+                        gameData.canvas.render.animationTimer = setTimeout(gameData.canvas.render.func, 30, new Date().getTime());
+                    }
                 }
             },
             stop: function () {
                 if (this.animationFrameRequest != undefined) {
                     window.cancelAnimationFrame(this.animationFrameRequest);
                     delete this.animationFrameRequest;
+                } else if (this.animationTimer != undefined) {
+                    clearTimeout(this.animationTimer);
                 }
             }
 
