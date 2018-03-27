@@ -185,7 +185,6 @@ var gameData = {
                     barRight: "black",
                 },
                 setComponentColor: function (component, color) {
-                    console.log(component, color);
                     var self = gameData.canvas.render.colors;
                     self.components[component] = color;
                     return true;
@@ -368,7 +367,6 @@ var gameData = {
                 if ("requestAnimationFrame" in window) {
                     gameData.canvas.render.animationFrameRequest = window.requestAnimationFrame(gameData.canvas.render.func);
                 } else {
-                    console.log("using timer");
                     gameData.canvas.render.animationTimer = setTimeout(gameData.canvas.render.func, 30, new Date().getTime());
                 }
             },
