@@ -41,6 +41,26 @@ Mocht Javascript uitstaan dan zal een preview worden weergegeven. Het spel is ni
 
 ## CSS
 
+### Unit support
+
+```CSS
+main {
+    width: 960px;
+    width: 60rem;
+
+    max-width: 100%;
+    max-width: 100vw;
+
+    padding-bottom: 16px;
+    padding-bottom: 1rem;
+
+    padding-top: 48px;
+    padding-top: 3rem;
+}
+```
+Geen fallback, maar een `back-fall` of te well Cascade. Nu worden ontbekende waardes alleen toegepast als deze beschikbaar zijn. Pixels zijn vanuit oorsprong altijd beschikbaar.
+
+
 ### Wanneer Flexbox niet ondersteund wordt:
 ```CSS
 #controls > div {
@@ -67,7 +87,7 @@ Mocht display flex niet ondersteund worden, gebruik dan een float left met breed
 
 ## JS
 
-###Append
+### Append
 
 <details>
     <summary>
