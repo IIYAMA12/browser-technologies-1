@@ -2,8 +2,9 @@
 
 [Opdracht 3](assignment.md)
 
+Pong is een spel waarbij 1 of 2 spelers een balletje naar elkaars kant overschieten. Mocht de tegenstander het balletje niet raken met zijn bescherm balk, dan ontvang je score.
 
-[Website](index.html)
+[Website](https://iiyama12.github.io/browser-technologies-1/opdracht3/)
 
 
 ## Controls X 4
