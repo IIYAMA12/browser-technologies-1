@@ -179,7 +179,8 @@ Met deze code wordt de juiste controller aangezet/gekozen. Dit is op basis van v
 1. touchmove
 2. pointermove
 3. mousemove
-(Hoger is meer prioriteit)
+
+(Hoger in de lijst is meer prioriteit)
 
 Bij het activeren van een hogere prioriteit event, worden de onderliggende events uitgeschakeld.
 
