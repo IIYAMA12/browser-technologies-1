@@ -68,13 +68,22 @@ Mocht display flex niet ondersteund worden, gebruik dan een float left met breed
 
 <details>
     <summary>
+        Weer in de fout gegaan met append.
+    </summary>
+    <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/append-error.jpg" alt="Append error"/>
+    <p>De methode <i>append</i> lijkt heel erg op appendChild, maar deze methode is nog vrij nieuw voor deze browsers.</p>
+</details>
+
+
+<details>
+    <summary>
         Touch events niet ondersteund in IE.
     </summary>
     <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/touch-not-supported-uses-cursor.jpg" alt="Touch events niet ondersteund in IE"/>
     <p>Internet Explorer ondersteund de <i>touch(Move) events</i> niet. Maar wel de mousemove event. Hierdoor volgt hij de muis wel waardoor de twee balken gelijk blijven.</p>
-    <a href="https://vimeo.com/262180748">Video</a>
 </details>
 
+[Video](https://vimeo.com/262180748)
 
 <details>
     <summary>
@@ -82,9 +91,9 @@ Mocht display flex niet ondersteund worden, gebruik dan een float left met breed
     </summary>
     <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/pointer-events-added.jpg" alt="Pointer events toegevoegd voor IE"/>
     <p>Na het toevoegen van de <i>pointer events</i> ondersteund ook de tablet ook touch.</p>
-    <a href="https://vimeo.com/262180800">Video</a>
 </details>
 
+[Video](https://vimeo.com/262180800)
 
 ### Configuratie controller
 ```JS
@@ -143,3 +152,13 @@ Oplossing
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 De goede oude viewport tag helemaal vergeten!
+
+
+## Design keuze
+<details>
+    <summary>
+        Uitbreiding aanraak gebied
+    </summary>
+    <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/touch-area.png" alt="Touch gebied"/>
+    <p>Aan de zijkanten van het spel is een extra aanraak oppervalte vrij gehouden voor touch apparaten. Hierdoor wordt je zicht op de schuivers belemmerd tijdens het spelen.</p>
+</details>
