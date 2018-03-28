@@ -58,7 +58,7 @@ main {
     padding-top: 3rem;
 }
 ```
-Geen fallback, maar een `back-fall` of te well Cascade. Nu worden ontbekende waardes alleen toegepast als deze beschikbaar zijn. Pixels zijn vanuit oorsprong altijd beschikbaar.
+Geen fallback, maar een `back-fall` of te well Cascade. Nu worden ontbekende CSS waardes (bv. rem) alleen toegepast als deze beschikbaar zijn. Pixels zijn vanuit oorsprong altijd beschikbaar.
 
 
 ### Wanneer Flexbox niet ondersteund wordt:
@@ -94,7 +94,7 @@ Mocht display flex niet ondersteund worden, gebruik dan een float left met breed
         Weer in de fout gegaan met append.
     </summary>
     <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/append-error.jpg" alt="Append error"/>
-    <p>De methode <i>append</i> lijkt heel erg op appendChild, maar deze methode is nog vrij nieuw voor deze browsers. Voor mij is het logisch om append ook te gebruiken voor maar 1 HTML node.</p>
+    <p>De methode <i>append</i> lijkt heel erg op appendChild, maar deze methode is nog vrij nieuw voor deze browsers. Voor mij is het logisch om append ook te gebruiken voor maar 1 HTML node, ook al ondersteund hij het om er meer toe te voegen.</p>
 </details>
 
 ---
@@ -108,7 +108,7 @@ if ("getContext" in canvasElement) {
     gamePreview.getElementsByTagName("p")[0].textContent = "Canvas is unfortunately not supported by your browser, which is required for the game.";
 }
 ```
-Bij het gebruik van getContext methode wordt de [CanvasRenderingContext2D](https://html.spec.whatwg.org/multipage/canvas.html#canvasrenderingcontext2d) object terug gestuurd. Hierop kan je verschillende methodes toepassen om te tekenen binnen het canvas element.
+Bij het gebruik van getContext methode wordt de [CanvasRenderingContext2D](https://html.spec.whatwg.org/multipage/canvas.html#canvasrenderingcontext2d) object teruggestuurd. Hierop kan je verschillende methodes toepassen om te tekenen binnen het canvas element.
 
 (Tip van [James](https://github.com/Jamerrone) om te controleren op de getContext methode.)
 
