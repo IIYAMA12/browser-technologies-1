@@ -7,7 +7,7 @@ Pong is een spel waarbij 1 of 2 spelers een balletje naar elkaars kant overschie
 [Website](https://iiyama12.github.io/browser-technologies-1/opdracht3/)
 
 
-## Controls X 4
+## Controller X 4
 * Knoppen (op het scherm)
 * Toetsenbord
 * Muis
@@ -28,7 +28,7 @@ Pong is een spel waarbij 1 of 2 spelers een balletje naar elkaars kant overschie
     </main>
 </body>
 ```
-Mocht Javascript uitstaan dan zal een preview worden weergegeven. Het spel is niet te spelen zonder JavaScript. JavaScript is daarom ook een deel van de bottomline.
+Mocht Javascript uitstaan dan zal een preview worden weergegeven. Het spel is niet te spelen zonder JavaScript. JavaScript samen met canvas is daarom ook een deel van de bottomline.
 
 <details>
     <summary>Preview</summary>
@@ -62,10 +62,12 @@ Mocht Javascript uitstaan dan zal een preview worden weergegeven. Het spel is ni
     }
 }
 ```
-Mocht display flex niet ondersteund worden, gebruik dan een float left met breedte 49.99%. Sommige browser geven problemen als je twee elementen naast elkaar zet met een breedte van 50%, er kan dan net een pixel te veel of te weinig worden gerekend en het content wordt dan niet naast elkaar gezet. Safari is hier erg goed in. Door aan beide kanten 0.01 pixel weg te halen los je dat probleem op. (Soms moet je meer weg halen)
+Mocht display flex niet ondersteund worden, gebruik dan een float left met breedte 49.99%. Sommige browser geven problemen als je twee elementen naast elkaar zet met een breedte van 50%, er kan dan net een pixel te veel of te weinig worden gerekend en het content wordt dan niet naast elkaar gezet. Safari is hier erg goed in. Door aan beide kanten 0.01 pixel weg te halen los je dat probleem op. (Soms moet je meer weghalen)
 
 
 ## JS
+
+###Append
 
 <details>
     <summary>
@@ -75,6 +77,7 @@ Mocht display flex niet ondersteund worden, gebruik dan een float left met breed
     <p>De methode <i>append</i> lijkt heel erg op appendChild, maar deze methode is nog vrij nieuw voor deze browsers. Voor mij is het logisch om append ook te gebruiken voor maar 1 HTML node.</p>
 </details>
 
+---
 
 ### Canvas aanwezig?
 ```JS
@@ -90,6 +93,8 @@ Bij het gebruik van getContext methode wordt de [CanvasRenderingContext2D](https
 (Tip van [James](https://github.com/Jamerrone) om te controleren op de getContext methode.)
 
 [Canvas specificatie](https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element)
+
+---
 
 ### Touch events
 
@@ -112,6 +117,8 @@ Bij het gebruik van getContext methode wordt de [CanvasRenderingContext2D](https
 </details>
 
 [Video](https://vimeo.com/262180800)
+
+---
 
 ### Configuratie controller
 ```JS
@@ -145,6 +152,8 @@ setControllerConfig: function (controller) {
 }
 ```
 Met deze code wordt de juiste controller aangezet/gekozen. Dit is op basis van van controller gebruik. Mocht een gebruiker het (`keypress`) toetsenbord of (`mousemove`) muis gebruiken, dan heeft dit geen gevolgens. Maar bij de (`pointermove`) touch (IE variant) en (`touchmove`) touch (Apple variant), zal de (`mousemove`) worden uitgeschakeld. Daarnaast zal hij ook (`pointermove`) uitschakelen wanneer (`touchmove`) actief is.
+
+---
 
 ### Overzicht prioriteit events en overschrijving
 1. touchmove
