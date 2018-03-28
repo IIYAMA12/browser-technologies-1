@@ -1,0 +1,100 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+main {
+    width: 960px;
+    width: 60rem;
+    max-width: 100%;
+    max-width: 100vw;
+    margin: auto;
+    position: relative;
+    padding-bottom: 16px;
+    padding-bottom: 1rem;
+}
+
+button {
+    min-width: 64px;
+    min-height: 64px;
+    min-height: 4rem;
+    min-width: 4rem;
+    background-color: orange;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2.5px 2.5px 0px 0px black;
+    transition: box-shadow 0.3s;
+}
+
+button:hover {
+    box-shadow: 5px 5px 0px 0px black;
+    background-color: #ffc800;
+}
+
+button:first-of-type {
+    margin-right: 16px;
+    margin-right: 1rem;
+}
+
+canvas {
+    margin: auto;
+    display: block;
+    padding-top: 48px;
+    padding-top: 3rem;
+}
+
+@media (max-width: 880px) {
+    canvas {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 55rem) {
+    canvas {
+        padding-top: 5rem;
+    }
+}
+
+#touch-and-cursor-element {
+    width: 100%;
+    touch-action: none;
+}
+
+#score-player1 {
+    left: 0;
+}
+
+#score-player2 {
+    right: 0;
+}
+
+#score-player1, #score-player2 {
+    top: 0;
+    padding: 0 16px;
+    padding: 0 1rem;
+    position: absolute;
+}
+
+#controls {
+    width: 70%;
+    margin: auto;
+}
+
+#controls > div {
+    width: 100%;
+    display: flex;
+}
+
+#controls > div > section {
+    width: 49.99%;
+}
+
+#controls > div > section:nth-of-type(2) {
+    float: left;
+}
+
+@supports (display: flex) {
+    #controls > div > section {
+        flex-grow: 1;
+    }
+}
