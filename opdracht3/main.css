@@ -39,6 +39,18 @@ canvas {
     display: block;
 }
 
+@media (max-width: 880px) {
+    canvas {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 55rem) {
+    canvas {
+        padding-top: 5rem;
+    }
+}
+
 #touch-and-cursor-element {
     width: 100%;
     touch-action: none;
@@ -54,6 +66,8 @@ canvas {
 
 #score-player1, #score-player2 {
     top: 0;
+    padding: 0 16px;
+    padding: 0 1rem;
     position: absolute;
 }
 
