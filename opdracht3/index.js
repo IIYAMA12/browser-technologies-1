@@ -26,7 +26,47 @@ var gameData = {
     },
     controller: {
         sensitivity: 15,
+        enabled: {
+            keyboard: true,
+            mouseMove: true,
+            pointerMove: true,
+            touchMove: true
+        },
         functions: {
+            setControllerEnabled: function (controller) {
+                switch (controller) {
+                    case "keyboard":
+                        return true;
+                    case "mouse":
+                        return true;
+                    case "pointerMove":
+                        // console.log("pointerMove 222", gameData.controller.functions.isControllerEnabled("mouseMove"));
+                        if (gameData.controller.functions.isControllerEnabled("mouseMove")) {
+                            console.log("pointerMove 2222");
+                            gameData.controller.touchAndCursorElement.removeEventListener("mousemove",gameData.controller.functions.mouseMove, false);
+                        }
+                        console.log(gameData.controller.enabled.mouseMove);
+                        gameData.controller.enabled.mouseMove = false;
+
+                        return true;
+                    case "touchMove":
+                        if (gameData.controller.functions.isControllerEnabled("mouseMove")) {
+                            gameData.controller.touchAndCursorElement.removeEventListener("mousemove",gameData.controller.functions.mouseMove, false);
+                        }
+                        if (gameData.controller.functions.isControllerEnabled("pointerMove")) {
+                            gameData.controller.touchAndCursorElement.removeEventListener("pointermove",gameData.controller.functions.pointerMove, false);
+                        }
+
+                        gameData.controller.enabled.mouseMove = false;
+                        gameData.controller.enabled.pointerMove = false;
+                        return true;
+                    default:
+                }
+                return false;
+            },
+            isControllerEnabled: function (controller) {
+                return gameData.controller.enabled[controller];
+            },
             buttons: function (e) {
                 var source = e.target;
                 var value = source.value;
@@ -51,6 +91,7 @@ var gameData = {
                 }
             },
             keyboard: function (e) {
+
                 var keyName = e.key;
 
                 var self = gameData.controller;
@@ -86,8 +127,15 @@ var gameData = {
                         break;
                 }
             },
-            mouse: function (e) {
+            mouseMove: function (e) {
                 var source = e.target;
+                console.log("mouse");
+
+                if (gameData.controller.functions.isControllerEnabled("mouseMove")) {
+                    gameData.controller.functions.setControllerEnabled("mouseMove");
+                    console.log("mouseMove enabled");
+                }
+
 
                 var cursorPositionY = e.clientY - source.getBoundingClientRect().top;
                 var cursorPositionX = e.clientX - source.getBoundingClientRect().left;
@@ -110,19 +158,25 @@ var gameData = {
                 }
             },
             pointerMove: function (e) {
-                console.log("pointerMove");
                 var source = e.target;
-                // max 2 fingers
-                for (var i = 0; i < Math.min(2, e.targetTouches.length); i++ ) {
-                    var clientY = parseInt(e.targetTouches[i].clientY);
-                    var clientX = parseInt(e.targetTouches[i].clientX);
-                    gameData.controller.functions.touchMoveDetection(source, clientX, clientY);
+
+                console.log("pointerMove");
+
+                if (gameData.controller.functions.isControllerEnabled("pointerMove")) {
+                    gameData.controller.functions.setControllerEnabled("pointerMove");
                 }
+
+                gameData.controller.functions.touchMoveDetection(source, e.clientX, e.clientY);
+
                 e.preventDefault();
             },
             touchMove: function (e) {
-                console.log("touchMove");
                 var source = e.target;
+
+                if (gameData.controller.functions.isControllerEnabled("touchMove")) {
+                    gameData.controller.functions.setControllerEnabled("touchMove");
+                }
+
                 // max 2 fingers
                 for (var i = 0; i < Math.min(2, e.targetTouches.length); i++ ) {
                     var clientY = parseInt(e.targetTouches[i].clientY);
@@ -132,7 +186,6 @@ var gameData = {
                 e.preventDefault();
             },
             touchMoveDetection: function (source, clientX, clientY) {
-
 
                 if (clientY != undefined && clientX != undefined) {
                     var self = gameData.controller;
@@ -527,9 +580,9 @@ window.addEventListener("load", function () {
 
     if ("addEventListener" in document) {
         document.addEventListener("keypress",gameData.controller.functions.keyboard);
-        touchAndCursorElement.addEventListener("mousemove",gameData.controller.functions.mouse, false);
+        touchAndCursorElement.addEventListener("mousemove",gameData.controller.functions.mouseMove, false);
         touchAndCursorElement.addEventListener("touchmove",gameData.controller.functions.touchMove, false);
         touchAndCursorElement.addEventListener("pointermove",gameData.controller.functions.pointerMove, false);
-
     }
+    gameData.controller.touchAndCursorElement = touchAndCursorElement;
 });
