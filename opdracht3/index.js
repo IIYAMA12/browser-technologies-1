@@ -33,7 +33,7 @@ var gameData = {
             touchMove: true
         },
         functions: {
-            setControllerEnabled: function (controller) {
+            setControllerConfig: function (controller) {
                 switch (controller) {
                     case "keyboard":
                         return true;
@@ -42,10 +42,8 @@ var gameData = {
                     case "pointerMove":
                         // console.log("pointerMove 222", gameData.controller.functions.isControllerEnabled("mouseMove"));
                         if (gameData.controller.functions.isControllerEnabled("mouseMove")) {
-                            console.log("pointerMove 2222");
                             gameData.controller.touchAndCursorElement.removeEventListener("mousemove",gameData.controller.functions.mouseMove, false);
                         }
-                        console.log(gameData.controller.enabled.mouseMove);
                         gameData.controller.enabled.mouseMove = false;
 
                         return true;
@@ -129,11 +127,9 @@ var gameData = {
             },
             mouseMove: function (e) {
                 var source = e.target;
-                console.log("mouse");
 
                 if (gameData.controller.functions.isControllerEnabled("mouseMove")) {
-                    gameData.controller.functions.setControllerEnabled("mouseMove");
-                    console.log("mouseMove enabled");
+                    gameData.controller.functions.setControllerConfig("mouseMove");
                 }
 
 
@@ -163,7 +159,7 @@ var gameData = {
                 console.log("pointerMove");
 
                 if (gameData.controller.functions.isControllerEnabled("pointerMove")) {
-                    gameData.controller.functions.setControllerEnabled("pointerMove");
+                    gameData.controller.functions.setControllerConfig("pointerMove");
                 }
 
                 gameData.controller.functions.touchMoveDetection(source, e.clientX, e.clientY);
@@ -174,7 +170,7 @@ var gameData = {
                 var source = e.target;
 
                 if (gameData.controller.functions.isControllerEnabled("touchMove")) {
-                    gameData.controller.functions.setControllerEnabled("touchMove");
+                    gameData.controller.functions.setControllerConfig("touchMove");
                 }
 
                 // max 2 fingers
