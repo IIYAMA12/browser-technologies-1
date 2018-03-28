@@ -13,6 +13,7 @@
 * Touch
 
 
+
 ## HTML
 
 ### Game preview
@@ -30,7 +31,7 @@ Mocht Javascript uitstaan dan zal een preview worden weergegeven. Het spel is ni
 
 <details>
     <summary>Preview</summary>
-    <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/readme-content/preview.png" alt="Preview game">
+    <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/preview.png" alt="Preview game">
 </details>
 
 
@@ -69,7 +70,7 @@ Mocht display flex niet ondersteund worden, gebruik dan een float left met breed
     <summary>
         Touch events niet ondersteund in IE.
     </summary>
-    <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/readme-content/touch-not-supported-uses-cursor.jpg" alt="Touch events niet ondersteund in IE"/>
+    <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/touch-not-supported-uses-cursor.jpg" alt="Touch events niet ondersteund in IE"/>
     <p>Internet Explorer ondersteund de <i>touch(Move) events</i> niet. Maar wel de mousemove event. Hierdoor volgt hij de muis wel waardoor de twee balken gelijk blijven.</p>
     <a href="https://vimeo.com/262180748">Video</a>
 </details>
@@ -79,7 +80,7 @@ Mocht display flex niet ondersteund worden, gebruik dan een float left met breed
     <summary>
         Pointer events toegevoegd voor IE.
     </summary>
-    <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/readme-content/pointer-events-added.jpg" alt="Pointer events toegevoegd voor IE"/>
+    <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/pointer-events-added.jpg" alt="Pointer events toegevoegd voor IE"/>
     <p>Na het toevoegen van de <i>pointer events</i> ondersteund ook de tablet ook touch.</p>
     <a href="https://vimeo.com/262180800">Video</a>
 </details>
@@ -127,11 +128,11 @@ Met deze code wordt de juiste controller aangezet/gekozen. Dit is op basis van v
     </summary>
     <ul>
         <li>
-            <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/readme-content/first-mobile-layout-1.jpg" alt="Samsung"/>
+            <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/first-mobile-layout-1.jpg" alt="Samsung"/>
             <p>Op deze Samsung smartphone werkte de game in zijn geheel. De knoppen werkte helaas niet helemaal goed omdat deze veel te klein waren.</p>
         <li>
         <li>
-            <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/readme-content/first-mobile-layout-2.jpg" alt="O?"/>
+            <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/first-mobile-layout-2.jpg" alt="O?"/>
             <p>Op deze smartphone was de schaal verhouding ook niet optimaal.</p>
         <li>
     </ul>
