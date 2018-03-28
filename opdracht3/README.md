@@ -5,7 +5,7 @@
 
 [Website](index.html)
 
-[![Touch niet ondersteund in ie](touch-not-supported-uses-cursor.jpg)](https://vimeo.com/262180748)
+[![Touch niet ondersteund in ie](readme-content/touch-not-supported-uses-cursor.jpg)](https://player.vimeo.com/video/262180748)
 
 
-[![Pointer events toegevoegd voor ie](readme-content/pointer-events-added.jpg)](https://vimeo.com/262180800)
+[![Pointer events toegevoegd voor ie](readme-content/pointer-events-added.jpg)](https://player.vimeo.com/video/262180800)
