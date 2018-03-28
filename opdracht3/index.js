@@ -109,42 +109,52 @@ var gameData = {
 
                 }
             },
-
-            touchMove: function (e) {
+            pointerMove: function (e) {
+                console.log("pointerMove");
                 var source = e.target;
-                var self = gameData.controller;
-                var canvasData = gameData.canvas.data;
-
-
                 // max 2 fingers
                 for (var i = 0; i < Math.min(2, e.targetTouches.length); i++ ) {
                     var clientY = parseInt(e.targetTouches[i].clientY);
                     var clientX = parseInt(e.targetTouches[i].clientX);
+                    gameData.controller.functions.touchMoveDetection(source, clientX, clientY);
+                }
+                e.preventDefault();
+            },
+            touchMove: function (e) {
+                console.log("touchMove");
+                var source = e.target;
+                // max 2 fingers
+                for (var i = 0; i < Math.min(2, e.targetTouches.length); i++ ) {
+                    var clientY = parseInt(e.targetTouches[i].clientY);
+                    var clientX = parseInt(e.targetTouches[i].clientX);
+                    gameData.controller.functions.touchMoveDetection(source, clientX, clientY);
+                }
+                e.preventDefault();
+            },
+            touchMoveDetection: function (source, clientX, clientY) {
 
 
-                    if (clientY != undefined && clientX != undefined) {
+                if (clientY != undefined && clientX != undefined) {
+                    var self = gameData.controller;
+                    var canvasData = gameData.canvas.data;
+
+                    var cursorPositionY = clientY - source.getBoundingClientRect().top;
+                    var cursorPositionX = clientX - source.getBoundingClientRect().left;
+
+                    if (cursorPositionY > 0 && cursorPositionY < canvasData.size) {
+
+                        var sizeScaleFactor = canvasData.size / 640;
+                        var barHeight = 100 * sizeScaleFactor;
 
 
-
-                        var cursorPositionY = clientY - source.getBoundingClientRect().top;
-                        var cursorPositionX = clientX - source.getBoundingClientRect().left;
-
-                        if (cursorPositionY > 0 && cursorPositionY < canvasData.size) {
-
-                            var sizeScaleFactor = canvasData.size / 640;
-                            var barHeight = 100 * sizeScaleFactor;
+                        var position = ((cursorPositionY - (barHeight / 2)) / (canvasData.size - barHeight)) * 100;
 
 
-                            var position = ((cursorPositionY - (barHeight / 2)) / (canvasData.size - barHeight)) * 100;
-
-
-                            position = gameData.utility.setValueLimit(position, 0, 100);
-                            if (cursorPositionX < canvasData.size / 2) {
-                                self.position.player1 = position;
-                            } else {
-                                self.position.player2 = position;
-                            }
-                            e.preventDefault();
+                        position = gameData.utility.setValueLimit(position, 0, 100);
+                        if (cursorPositionX < canvasData.size / 2) {
+                            self.position.player1 = position;
+                        } else {
+                            self.position.player2 = position;
                         }
                     }
                 }
@@ -386,6 +396,7 @@ var gameData = {
                     delete this.animationFrameRequest;
                 } else if (this.animationTimer != undefined) {
                     clearTimeout(this.animationTimer);
+                    delete this.animationTimer;
                 }
             }
 
@@ -435,14 +446,15 @@ window.addEventListener("load", function () {
     gameData.canvas.element = canvasElement;
 
 
-
+    // Controller section
     var controlsSectionElement = document.createElement("section");
     controlsSectionElement.id = "controls";
 
+    // Add a div for styling
     var controlsContainerElement = document.createElement("div");
 
     var controlsHeadingElement = document.createElement("h2");
-    controlsHeadingElement.appendChild(document.createTextNode("Controls"));
+    controlsHeadingElement.textContent = "Controls";
     controlsSectionElement.appendChild(controlsHeadingElement);
 
     // Buttons per player.
@@ -457,12 +469,13 @@ window.addEventListener("load", function () {
         }
     ];
 
+    // Make the controller content info
     for (var i = 1; i < 3; i++) {
         var playerSectionElement = document.createElement("section");
 
         // Controls section headings
         var headingElement = document.createElement("h3");
-        headingElement.appendChild(document.createTextNode("Player" + i));
+        headingElement.textContent = "Player" + i;
         playerSectionElement.appendChild(headingElement);
         playerSectionElement.id = "player-controls-" + i;
         // Make the buttons
@@ -473,7 +486,7 @@ window.addEventListener("load", function () {
 
             // Set the properties
             buttonElement.value = buttonData.value;
-            buttonElement.appendChild(document.createTextNode(buttonData.nodeValue));
+            buttonElement.textContent = buttonData.nodeValue;
 
             playerSectionElement.appendChild(buttonElement);
         }
@@ -485,6 +498,7 @@ window.addEventListener("load", function () {
 
     controlsSectionElement.appendChild(controlsContainerElement);
 
+    // Player 1 score
     var scorePlayer1Element = document.createElement("p");
     scorePlayer1Element.textContent = "Score player1: ";
     var scoreIndicatorPlayer1Element = document.createElement("span");
@@ -493,27 +507,29 @@ window.addEventListener("load", function () {
     scorePlayer1Element.id = "score-player1";
     mainElement.appendChild(scorePlayer1Element);
 
+    // Player 2 score
     var scorePlayer2Element = document.createElement("p");
-    scorePlayer2Element.appendChild(document.createTextNode("Score player2: "));
-
+    scorePlayer2Element.textContent = "Score player2: ";
     var scoreIndicatorPlayer2Element = document.createElement("span");
     scoreIndicatorPlayer2Element.textContent = "0";
-
     scorePlayer2Element.appendChild(scoreIndicatorPlayer2Element);
     scorePlayer2Element.id = "score-player2";
     mainElement.appendChild(scorePlayer2Element);
 
+    // Touch and cursor area
     var touchAndCursorElement = document.createElement("div");
     touchAndCursorElement.appendChild(canvasElement);
-
     touchAndCursorElement.id = "touch-and-cursor-element";
-
     mainElement.appendChild(touchAndCursorElement);
 
     mainElement.appendChild(controlsSectionElement);
     gameData.canvas.render.start();
 
-    document.addEventListener("keypress",gameData.controller.functions.keyboard);
-    touchAndCursorElement.addEventListener("mousemove",gameData.controller.functions.mouse);
-    touchAndCursorElement.addEventListener("touchmove",gameData.controller.functions.touchMove, false);
+    if ("addEventListener" in document) {
+        document.addEventListener("keypress",gameData.controller.functions.keyboard);
+        touchAndCursorElement.addEventListener("mousemove",gameData.controller.functions.mouse, false);
+        touchAndCursorElement.addEventListener("touchmove",gameData.controller.functions.touchMove, false);
+        touchAndCursorElement.addEventListener("pointermove",gameData.controller.functions.pointerMove, false);
+
+    }
 });
