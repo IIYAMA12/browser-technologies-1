@@ -71,9 +71,26 @@ Mocht display flex niet ondersteund worden, gebruik dan een float left met breed
         Weer in de fout gegaan met append.
     </summary>
     <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/append-error.jpg" alt="Append error"/>
-    <p>De methode <i>append</i> lijkt heel erg op appendChild, maar deze methode is nog vrij nieuw voor deze browsers.</p>
+    <p>De methode <i>append</i> lijkt heel erg op appendChild, maar deze methode is nog vrij nieuw voor deze browsers. Voor mij is het logisch om append ook te gebruiken voor maar 1 HTML node.</p>
 </details>
 
+
+### Canvas aanwezig?
+```JS
+var canvasElement = document.createElement("canvas");
+if ("getContext" in canvasElement) {
+    // ...
+} else {
+    gamePreview.getElementsByTagName("p")[0].textContent = "Canvas is unfortunately not supported by your browser, which is required for the game.";
+}
+```
+Bij het gebruik van getContext methode wordt de [CanvasRenderingContext2D](https://html.spec.whatwg.org/multipage/canvas.html#canvasrenderingcontext2d) object terug gestuurd. Hierop kan je verschillende methodes toepassen om te tekenen binnen het canvas element.
+
+(Tip van [James](https://github.com/Jamerrone) om te controleren op de getContext methode.)
+
+[Canvas specificatie](https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-element)
+
+### Touch events
 
 <details>
     <summary>
@@ -104,7 +121,6 @@ setControllerConfig: function (controller) {
         case "mouseMove":
             return true;
         case "pointerMove":
-            // console.log("pointerMove 222", gameData.controller.functions.isControllerEnabled("mouseMove"));
             if (gameData.controller.functions.isControllerEnabled("mouseMove")) {
                 gameData.controller.touchAndCursorElement.removeEventListener("mousemove",gameData.controller.functions.mouseMove, false);
             }
@@ -129,6 +145,13 @@ setControllerConfig: function (controller) {
 ```
 Met deze code wordt de juiste controller aangezet/gekozen. Dit is op basis van van controller gebruik. Mocht een gebruiker het (`keypress`) toetsenbord of (`mousemove`) muis gebruiken, dan heeft dit geen gevolgens. Maar bij de (`pointermove`) touch (IE variant) en (`touchmove`) touch (Apple variant), zal de (`mousemove`) worden uitgeschakeld. Daarnaast zal hij ook (`pointermove`) uitschakelen wanneer (`touchmove`) actief is.
 
+### Overzicht prioriteit events en overschrijving
+1. touchmove
+2. pointermove
+3. mousemove
+(Hoger is meer prioriteit)
+
+Bij het activeren van een hogere prioriteit event, worden de onderliggende events uitgeschakeld.
 
 
 <details>

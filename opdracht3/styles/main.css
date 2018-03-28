@@ -12,6 +12,28 @@ main {
     position: relative;
     padding-bottom: 16px;
     padding-bottom: 1rem;
+    padding-top: 48px;
+    padding-top: 3rem;
+}
+
+@media (max-width: 880px) {
+    main {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 55rem) {
+    main {
+        padding-top: 5rem;
+    }
+}
+
+#game-preview img {
+    width: 100%;
+}
+
+#game-preview p {
+    text-align: center;
 }
 
 button {
@@ -24,6 +46,7 @@ button {
     cursor: pointer;
     box-shadow: 2.5px 2.5px 0px 0px black;
     transition: box-shadow 0.3s;
+    margin: 0 0 1rem 0;
 }
 
 button:hover {
@@ -39,20 +62,6 @@ button:first-of-type {
 canvas {
     margin: auto;
     display: block;
-    padding-top: 48px;
-    padding-top: 3rem;
-}
-
-@media (max-width: 880px) {
-    canvas {
-        padding-top: 80px;
-    }
-}
-
-@media (max-width: 55rem) {
-    canvas {
-        padding-top: 5rem;
-    }
 }
 
 #touch-and-cursor-element {
@@ -95,6 +104,7 @@ canvas {
 
 @supports (display: flex) {
     #controls > div > section {
-        flex-grow: 1;
+        flex-grow: 0;
+        flex-shrink: 0;
     }
 }

@@ -12,7 +12,28 @@ main {
     position: relative;
     padding-bottom: 16px;
     padding-bottom: 1rem;
+
+    padding-top: 48px;
+    padding-top: 3rem;
+
+    @media (max-width: 880px) {
+        padding-top: 80px;
+    }
+
+
+    @media (max-width: 55rem) {
+        padding-top: 5rem;
+    }
 }
+
+
+#game-preview img {
+    width: 100%;
+}
+#game-preview p {
+    text-align: center;
+}
+
 
 button {
     min-width: 64px;
@@ -29,7 +50,7 @@ button {
         box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
         background-color: rgb(255, 200, 0);
     }
-
+    margin: 0 0 1rem 0;
     &:first-of-type {
         margin-right: 16px;
         margin-right: 1rem;
@@ -39,22 +60,9 @@ button {
 canvas {
     margin: auto;
     display: block;
-    padding-top: 48px;
-    padding-top: 3rem;
-}
-
-@media (max-width: 880px) {
-    canvas {
-        padding-top: 80px;
-    }
 }
 
 
-@media (max-width: 55rem) {
-    canvas {
-        padding-top: 5rem;
-    }
-}
 
 
 
@@ -97,7 +105,8 @@ canvas {
 
         @supports (display: flex) {
             > section {
-                flex-grow: 1;
+                flex-grow: 0;
+                flex-shrink: 0;
             }
         }
 

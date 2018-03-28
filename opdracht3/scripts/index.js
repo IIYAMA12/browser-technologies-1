@@ -460,15 +460,17 @@ var gameData = {
 };
 
 window.addEventListener("load", function () {
-    var gamePreview = document.getElementById("game-preview");
-    if (gamePreview != undefined) {
-        gamePreview.parentElement.removeChild(gamePreview);
-    }
 
+    var gamePreview = document.getElementById("game-preview");
 
 
     var canvasElement = document.createElement("canvas");
-    if (canvasElement != null) {
+    if ("getContext" in canvasElement) {
+
+        if (gamePreview != undefined) {
+            gamePreview.parentElement.removeChild(gamePreview);
+        }
+
         var mainElement = document.getElementsByTagName("main")[0];
         var domRect = mainElement.getBoundingClientRect();
         if (domRect.width != undefined) {
@@ -580,5 +582,7 @@ window.addEventListener("load", function () {
             touchAndCursorElement.addEventListener("pointermove",gameData.controller.functions.pointerMove, false);
         }
         gameData.controller.touchAndCursorElement = touchAndCursorElement;
+    } else {
+        gamePreview.getElementsByTagName("p")[0].textContent = "Canvas is unfortunately not supported by your browser, which is required for the game.";
     }
 });

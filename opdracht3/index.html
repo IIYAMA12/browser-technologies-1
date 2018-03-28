@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>Pong</title>
-        <!-- <link rel="stylesheet" href="styles/main.min.css"> -->
+        <link rel="stylesheet" href="styles/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <style media="screen">
+        <!-- <style media="screen">
             body {
                 font-family: sans-serif;
                 margin: 0;
@@ -112,10 +112,10 @@
             @supports (display: flex) {
                 #controls > div > section {
                     flex-grow: 1;
-                    width: auto;
+                    width: initial;
                 }
             }
-        </style>
+        </style> -->
         <main>
             <div id="game-preview">
                 <img src="images/preview.png" alt="Example of the game.">
@@ -123,8 +123,8 @@
             </div>
         </main>
     </body>
-    <!-- <script src="scripts/index.js"></script> -->
-    <script>
+    <script src="scripts/index.js"></script>
+    <!-- <script>
         'use strict';
 
 
@@ -709,5 +709,5 @@
                 gameData.controller.touchAndCursorElement = touchAndCursorElement;
             }
         });
-    </script>
+    </script> -->
 </html>
