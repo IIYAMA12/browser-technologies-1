@@ -103,7 +103,7 @@
             }
 
             #controls > div > section {
-                width: 49%;
+                width: 49.99%;
             }
             #controls > div > section:nth-of-type(2) {
                 float: left;
@@ -154,7 +154,7 @@
             controller: {
                 sensitivity: 15,
                 enabled: {
-                    keyboard: true,
+                    keyPress: true,
                     mouseMove: true,
                     pointerMove: true,
                     touchMove: true
@@ -162,9 +162,9 @@
                 functions: {
                     setControllerConfig: function (controller) {
                         switch (controller) {
-                            case "keyboard":
+                            case "keyPress":
                                 return true;
-                            case "mouse":
+                            case "mouseMove":
                                 return true;
                             case "pointerMove":
                                 // console.log("pointerMove 222", gameData.controller.functions.isControllerEnabled("mouseMove"));
@@ -215,7 +215,7 @@
                             }
                         }
                     },
-                    keyboard: function (e) {
+                    keyPress: function (e) {
 
                         var keyName = e.key;
 
@@ -701,7 +701,7 @@
                 gameData.canvas.render.start();
 
                 if ("addEventListener" in document) {
-                    document.addEventListener("keypress",gameData.controller.functions.keyboard);
+                    document.addEventListener("keypress",gameData.controller.functions.keyPress);
                     touchAndCursorElement.addEventListener("mousemove",gameData.controller.functions.mouseMove, false);
                     touchAndCursorElement.addEventListener("touchmove",gameData.controller.functions.touchMove, false);
                     touchAndCursorElement.addEventListener("pointermove",gameData.controller.functions.pointerMove, false);

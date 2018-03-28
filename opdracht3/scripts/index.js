@@ -27,7 +27,7 @@ var gameData = {
     controller: {
         sensitivity: 15,
         enabled: {
-            keyboard: true,
+            keyPress: true,
             mouseMove: true,
             pointerMove: true,
             touchMove: true
@@ -35,9 +35,9 @@ var gameData = {
         functions: {
             setControllerConfig: function (controller) {
                 switch (controller) {
-                    case "keyboard":
+                    case "keyPress":
                         return true;
-                    case "mouse":
+                    case "mouseMove":
                         return true;
                     case "pointerMove":
                         // console.log("pointerMove 222", gameData.controller.functions.isControllerEnabled("mouseMove"));
@@ -88,7 +88,7 @@ var gameData = {
                     }
                 }
             },
-            keyboard: function (e) {
+            keyPress: function (e) {
 
                 var keyName = e.key;
 
@@ -149,14 +149,10 @@ var gameData = {
 
                     self.position.player1 = position;
                     self.position.player2 = position;
-
-
                 }
             },
             pointerMove: function (e) {
                 var source = e.target;
-
-                console.log("pointerMove");
 
                 if (gameData.controller.functions.isControllerEnabled("pointerMove")) {
                     gameData.controller.functions.setControllerConfig("pointerMove");
@@ -463,14 +459,6 @@ var gameData = {
     }
 };
 
-
-
-
-
-
-
-
-
 window.addEventListener("load", function () {
     var gamePreview = document.getElementById("game-preview");
     if (gamePreview != undefined) {
@@ -586,7 +574,7 @@ window.addEventListener("load", function () {
         gameData.canvas.render.start();
 
         if ("addEventListener" in document) {
-            document.addEventListener("keypress",gameData.controller.functions.keyboard);
+            document.addEventListener("keypress",gameData.controller.functions.keyPress);
             touchAndCursorElement.addEventListener("mousemove",gameData.controller.functions.mouseMove, false);
             touchAndCursorElement.addEventListener("touchmove",gameData.controller.functions.touchMove, false);
             touchAndCursorElement.addEventListener("pointermove",gameData.controller.functions.pointerMove, false);
