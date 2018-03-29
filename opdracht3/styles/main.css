@@ -67,6 +67,10 @@ canvas {
 #touch-and-cursor-element {
     width: 100%;
     touch-action: none;
+    background-color: #fafafa;
+    border: 1px solid #c8c8c8;
+    border-radius: 32px;
+    border-radius: 2rem;
 }
 
 #score-player1 {
