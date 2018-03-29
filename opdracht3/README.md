@@ -30,7 +30,7 @@ Pong is een spel waarbij 1 of 2 spelers een balletje naar elkaars kant overschie
     </main>
 </body>
 ```
-Mocht Javascript uitstaan dan zal een preview worden weergegeven. Het spel is niet te spelen zonder JavaScript. JavaScript samen met canvas is daarom ook een deel van de bottomline.
+Mocht Javascript uitstaan dan zal een preview worden weergegeven. Het spel is niet te spelen zonder JavaScript. JavaScript samen met canvas is daarom ook een deel van de bottomline. Ook aan de hand van het bestaan van addEventListener wordt er gecontrolleerd of de browser goed genoeg is om enkele van deze interacties uit te voeren.
 
 <details>
     <summary>Preview</summary>

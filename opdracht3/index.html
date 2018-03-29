@@ -591,10 +591,12 @@
                 }
             }
         };
+        var gamePreview = document.getElementById("game-preview");
+
         if ("addEventListener" in window) {
             window.addEventListener("load", function () {
 
-                var gamePreview = document.getElementById("game-preview");
+
 
 
                 var canvasElement = document.createElement("canvas");
@@ -719,6 +721,8 @@
                     gamePreview.getElementsByTagName("p")[0].textContent = "Canvas is unfortunately not supported by your browser, which is required for the game.";
                 }
             });
+        } else {
+            gamePreview.getElementsByTagName("p")[0].textContent = "Your browser doesn't support the basic JavaScript functionality to play this game.";
         }
 
     </script>

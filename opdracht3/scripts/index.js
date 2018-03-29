@@ -455,131 +455,136 @@ var gameData = {
         }
     }
 };
+var gamePreview = document.getElementById("game-preview");
 
-window.addEventListener("load", function () {
-
-    var gamePreview = document.getElementById("game-preview");
-
-
-    var canvasElement = document.createElement("canvas");
-    if ("getContext" in canvasElement) {
-
-        if (gamePreview != undefined) {
-            gamePreview.parentElement.removeChild(gamePreview);
-        }
-
-        var mainElement = document.getElementsByTagName("main")[0];
-        var domRect = mainElement.getBoundingClientRect();
-        if (domRect.width != undefined) {
-            canvasElement.width = domRect.width * 0.7;
-            canvasElement.height = domRect.width * 0.7;
-        } else { // IE 8
-            canvasElement.width = 600;
-            canvasElement.height = 600;
-        }
-
-        gameData.canvas.data.size = canvasElement.width;
-
-        gameData.canvas.element = canvasElement;
+if ("addEventListener" in window) {
+    window.addEventListener("load", function () {
 
 
-        // Controller section
-        var controlsSectionElement = document.createElement("section");
-        controlsSectionElement.id = "controls";
 
-        // Add a div for styling
-        var controlsContainerElement = document.createElement("div");
 
-        var controlsHeadingElement = document.createElement("h2");
-        controlsHeadingElement.textContent = "Controls";
-        controlsSectionElement.appendChild(controlsHeadingElement);
+        var canvasElement = document.createElement("canvas");
+        if ("getContext" in canvasElement) {
 
-        // Buttons per player.
-        var buttonsData = [
-            {
-                value: "up",
-                nodeValue: "up"
-            },
-            {
-                value: "down",
-                nodeValue: "down"
-            }
-        ];
-
-        var keyData = [
-            ["w", "s"],
-            ["Arrow up", "Arrow down"]
-        ];
-
-        // Make the controller content info
-        for (var i = 0; i < 2; i++) {
-            var playerSectionElement = document.createElement("section");
-
-            // Controls section headings
-            var headingElement = document.createElement("h3");
-            headingElement.textContent = "Player" + (i + 1);
-            playerSectionElement.appendChild(headingElement);
-            playerSectionElement.id = "player-controls-" + (i + 1);
-            // Make the buttons
-            for (var j = 0; j < buttonsData.length; j++) {
-                var buttonElement = document.createElement("button");
-                var buttonData = buttonsData[j];
-                buttonElement.addEventListener("click", gameData.controller.functions.buttons);
-
-                // Set the properties
-                buttonElement.value = buttonData.value;
-                buttonElement.textContent = buttonData.nodeValue;
-
-                playerSectionElement.appendChild(buttonElement);
+            if (gamePreview != undefined) {
+                gamePreview.parentElement.removeChild(gamePreview);
             }
 
-            var keyInfoElement = document.createElement("p");
-            keyInfoElement.textContent = keyData[i].reduce(function (accumulator, currentValue, index) {
-                return accumulator + currentValue + (keyData[i].length - 1 != index ? ", " : "");
-            }, "Keys: ");
+            var mainElement = document.getElementsByTagName("main")[0];
+            var domRect = mainElement.getBoundingClientRect();
+            if (domRect.width != undefined) {
+                canvasElement.width = domRect.width * 0.7;
+                canvasElement.height = domRect.width * 0.7;
+            } else { // IE 8
+                canvasElement.width = 600;
+                canvasElement.height = 600;
+            }
+
+            gameData.canvas.data.size = canvasElement.width;
+
+            gameData.canvas.element = canvasElement;
 
 
-            playerSectionElement.appendChild(keyInfoElement);
-            controlsContainerElement.appendChild(playerSectionElement);
-        }
+            // Controller section
+            var controlsSectionElement = document.createElement("section");
+            controlsSectionElement.id = "controls";
 
-        controlsSectionElement.appendChild(controlsContainerElement);
+            // Add a div for styling
+            var controlsContainerElement = document.createElement("div");
 
-        // Player 1 score
-        var scorePlayer1Element = document.createElement("p");
-        scorePlayer1Element.textContent = "Score player1: ";
-        var scoreIndicatorPlayer1Element = document.createElement("span");
-        scoreIndicatorPlayer1Element.textContent = "0";
-        scorePlayer1Element.appendChild(scoreIndicatorPlayer1Element);
-        scorePlayer1Element.id = "score-player1";
-        mainElement.appendChild(scorePlayer1Element);
+            var controlsHeadingElement = document.createElement("h2");
+            controlsHeadingElement.textContent = "Controls";
+            controlsSectionElement.appendChild(controlsHeadingElement);
 
-        // Player 2 score
-        var scorePlayer2Element = document.createElement("p");
-        scorePlayer2Element.textContent = "Score player2: ";
-        var scoreIndicatorPlayer2Element = document.createElement("span");
-        scoreIndicatorPlayer2Element.textContent = "0";
-        scorePlayer2Element.appendChild(scoreIndicatorPlayer2Element);
-        scorePlayer2Element.id = "score-player2";
-        mainElement.appendChild(scorePlayer2Element);
+            // Buttons per player.
+            var buttonsData = [
+                {
+                    value: "up",
+                    nodeValue: "up"
+                },
+                {
+                    value: "down",
+                    nodeValue: "down"
+                }
+            ];
 
-        // Touch and cursor area
-        var touchAndCursorElement = document.createElement("div");
-        touchAndCursorElement.appendChild(canvasElement);
-        touchAndCursorElement.id = "touch-and-cursor-element";
-        mainElement.appendChild(touchAndCursorElement);
+            var keyData = [
+                ["w", "s"],
+                ["Arrow up", "Arrow down"]
+            ];
 
-        mainElement.appendChild(controlsSectionElement);
-        gameData.canvas.render.start();
+            // Make the controller content info
+            for (var i = 0; i < 2; i++) {
+                var playerSectionElement = document.createElement("section");
 
-        if ("addEventListener" in document) {
+                // Controls section headings
+                var headingElement = document.createElement("h3");
+                headingElement.textContent = "Player" + (i + 1);
+                playerSectionElement.appendChild(headingElement);
+                playerSectionElement.id = "player-controls-" + (i + 1);
+                // Make the buttons
+                for (var j = 0; j < buttonsData.length; j++) {
+                    var buttonElement = document.createElement("button");
+                    var buttonData = buttonsData[j];
+                    buttonElement.addEventListener("click", gameData.controller.functions.buttons);
+
+                    // Set the properties
+                    buttonElement.value = buttonData.value;
+                    buttonElement.textContent = buttonData.nodeValue;
+
+                    playerSectionElement.appendChild(buttonElement);
+                }
+
+                var keyInfoElement = document.createElement("p");
+                keyInfoElement.textContent = keyData[i].reduce(function (accumulator, currentValue, index) {
+                    return accumulator + currentValue + (keyData[i].length - 1 != index ? ", " : "");
+                }, "Keys: ");
+
+
+                playerSectionElement.appendChild(keyInfoElement);
+                controlsContainerElement.appendChild(playerSectionElement);
+            }
+
+            controlsSectionElement.appendChild(controlsContainerElement);
+
+            // Player 1 score
+            var scorePlayer1Element = document.createElement("p");
+            scorePlayer1Element.textContent = "Score player1: ";
+            var scoreIndicatorPlayer1Element = document.createElement("span");
+            scoreIndicatorPlayer1Element.textContent = "0";
+            scorePlayer1Element.appendChild(scoreIndicatorPlayer1Element);
+            scorePlayer1Element.id = "score-player1";
+            mainElement.appendChild(scorePlayer1Element);
+
+            // Player 2 score
+            var scorePlayer2Element = document.createElement("p");
+            scorePlayer2Element.textContent = "Score player2: ";
+            var scoreIndicatorPlayer2Element = document.createElement("span");
+            scoreIndicatorPlayer2Element.textContent = "0";
+            scorePlayer2Element.appendChild(scoreIndicatorPlayer2Element);
+            scorePlayer2Element.id = "score-player2";
+            mainElement.appendChild(scorePlayer2Element);
+
+            // Touch and cursor area
+            var touchAndCursorElement = document.createElement("div");
+            touchAndCursorElement.appendChild(canvasElement);
+            touchAndCursorElement.id = "touch-and-cursor-element";
+            mainElement.appendChild(touchAndCursorElement);
+
+            mainElement.appendChild(controlsSectionElement);
+            gameData.canvas.render.start();
+
+
             document.addEventListener("keypress",gameData.controller.functions.keyPress);
             touchAndCursorElement.addEventListener("mousemove",gameData.controller.functions.mouseMove, false);
             touchAndCursorElement.addEventListener("touchmove",gameData.controller.functions.touchMove, false);
             touchAndCursorElement.addEventListener("pointermove",gameData.controller.functions.pointerMove, false);
+
+            gameData.controller.touchAndCursorElement = touchAndCursorElement;
+        } else {
+            gamePreview.getElementsByTagName("p")[0].textContent = "Canvas is unfortunately not supported by your browser, which is required for the game.";
         }
-        gameData.controller.touchAndCursorElement = touchAndCursorElement;
-    } else {
-        gamePreview.getElementsByTagName("p")[0].textContent = "Canvas is unfortunately not supported by your browser, which is required for the game.";
-    }
-});
+    });
+} else {
+    gamePreview.getElementsByTagName("p")[0].textContent = "Your browser doesn't support the basic JavaScript functionality to play this game.";
+}
