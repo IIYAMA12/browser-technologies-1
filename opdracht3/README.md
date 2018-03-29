@@ -4,6 +4,8 @@
 
 Pong is een spel waarbij 1 of 2 spelers een balletje naar elkaars kant overschieten. Mocht de tegenstander het balletje niet raken met zijn bescherm balk, dan ontvang je score.
 
+![Screenshot of the game](readme-content/screenshot.png)
+
 [Website](https://iiyama12.github.io/browser-technologies-1/opdracht3/)
 
 
