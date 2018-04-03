@@ -216,5 +216,5 @@ De goede oude viewport tag helemaal vergeten!
         Uitbreiding aanraak gebied
     </summary>
     <img src="https://raw.githubusercontent.com/IIYAMA12/browser-technologies-1/master/opdracht3/readme-content/touch-area.png" alt="Touch gebied"/>
-    <p>Aan de zijkanten van het spel is een extra aanraak oppervalte vrij gehouden voor touch apparaten. Hierdoor wordt je zicht op de schuivers belemmerd tijdens het spelen.</p>
+    <p>Aan de zijkanten van het spel is een extra aanraak oppervalte vrij gehouden voor touch apparaten. Hierdoor wordt je zicht op de schuivers `niet belemmerd` tijdens het spelen.</p>
 </details>
